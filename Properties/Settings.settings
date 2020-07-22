@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Sistem_de_inventario.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Dolar" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">75</Value>
+    </Setting>
+    <Setting Name="Color" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DarkGreen</Value>
+    </Setting>
+    <Setting Name="DolarOficial" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DolarImpuesto" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DolarBlue" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
