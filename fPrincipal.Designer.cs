@@ -36,7 +36,7 @@
             this.colPoliesterNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPoliesterPrecioDolar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPoliesterPorcentaje = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPoliesterPrecioFinal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPoliesterPrecioM2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pCuerinas = new System.Windows.Forms.TabPage();
             this.listViewCuerinas = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,7 +44,7 @@
             this.colAncho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPrecioDolar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPorcentaje = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrecioFinalPesos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrecioMLineal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pArticulos = new System.Windows.Forms.TabPage();
             this.listViewArticulos = new System.Windows.Forms.ListView();
             this.colArticulosID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -124,7 +124,7 @@
             this.colPoliesterNombre,
             this.colPoliesterPrecioDolar,
             this.colPoliesterPorcentaje,
-            this.colPoliesterPrecioFinal});
+            this.colPoliesterPrecioM2});
             this.listViewPoliester.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewPoliester.FullRowSelect = true;
             this.listViewPoliester.HideSelection = false;
@@ -155,10 +155,10 @@
             this.colPoliesterPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colPoliesterPorcentaje.Width = 40;
             // 
-            // colPoliesterPrecioFinal
+            // colPoliesterPrecioM2
             // 
-            this.colPoliesterPrecioFinal.Text = "Final en pesos";
-            this.colPoliesterPrecioFinal.Width = 120;
+            this.colPoliesterPrecioM2.Text = "M2 en pesos";
+            this.colPoliesterPrecioM2.Width = 120;
             // 
             // pCuerinas
             // 
@@ -180,7 +180,7 @@
             this.colAncho,
             this.colPrecioDolar,
             this.colPorcentaje,
-            this.colPrecioFinalPesos});
+            this.colPrecioMLineal});
             this.listViewCuerinas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewCuerinas.FullRowSelect = true;
             this.listViewCuerinas.HideSelection = false;
@@ -217,10 +217,10 @@
             this.colPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colPorcentaje.Width = 40;
             // 
-            // colPrecioFinalPesos
+            // colPrecioMLineal
             // 
-            this.colPrecioFinalPesos.Text = "Final en pesos";
-            this.colPrecioFinalPesos.Width = 120;
+            this.colPrecioMLineal.Text = "MLin. en pesos";
+            this.colPrecioMLineal.Width = 120;
             // 
             // pArticulos
             // 
@@ -678,7 +678,7 @@
             this.lblTotal.TabIndex = 37;
             this.lblTotal.Text = "TOTAL";
             // 
-            // fPrincipal
+            // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -714,8 +714,9 @@
             this.Controls.Add(this.cPestañas);
             this.Controls.Add(this.pictureBoxTitulo);
             this.Controls.Add(this.lblTotalFondo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 400);
-            this.Name = "fPrincipal";
+            this.Name = "FPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de precios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -762,7 +763,7 @@
         private System.Windows.Forms.ColumnHeader colAncho;
         private System.Windows.Forms.ColumnHeader colPrecioDolar;
         private System.Windows.Forms.ColumnHeader colPorcentaje;
-        private System.Windows.Forms.ColumnHeader colPrecioFinalPesos;
+        private System.Windows.Forms.ColumnHeader colPrecioMLineal;
         private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.Label lblSubTotal;
         public System.Windows.Forms.Label lblTotalFondo;
@@ -773,7 +774,7 @@
         private System.Windows.Forms.ColumnHeader colPoliesterNombre;
         private System.Windows.Forms.ColumnHeader colPoliesterPrecioDolar;
         private System.Windows.Forms.ColumnHeader colPoliesterPorcentaje;
-        private System.Windows.Forms.ColumnHeader colPoliesterPrecioFinal;
+        private System.Windows.Forms.ColumnHeader colPoliesterPrecioM2;
         private System.Windows.Forms.ColumnHeader colArticulosID;
         private System.Windows.Forms.ColumnHeader colArticulosDescripcion;
         private System.Windows.Forms.ColumnHeader colArticulosPrecio;

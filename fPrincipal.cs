@@ -18,6 +18,7 @@ namespace Sistem_de_inventario
         public static decimal Dolar;
         public static bool ModoEditar;
         public static decimal Total;
+        private static decimal AnchoPlanchaPoliester;
         public static ListViewItem ItemSeleccionado;
         public FPrincipal()
         {
@@ -44,6 +45,7 @@ namespace Sistem_de_inventario
             PestañaActual = 1;
             ModoEditar = false;
             Total = 0;
+            AnchoPlanchaPoliester = 1.9m;
             SetDolarDefault();
             ListViewPoliesterRefresh();
             //Recursos WEB
@@ -140,7 +142,7 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(poliester.Nombre);
                 item.SubItems.Add(Convert.ToString(poliester.Precio));
                 item.SubItems.Add(Convert.ToString(poliester.PorcDeGanancia));
-                item.SubItems.Add(Convert.ToString(Math.Round(((poliester.Precio + ((poliester.Precio * poliester.PorcDeGanancia) / 100)) * Dolar), 2)));
+                item.SubItems.Add(Convert.ToString(Math.Round(((poliester.Precio/AnchoPlanchaPoliester + (((poliester.Precio/AnchoPlanchaPoliester) * poliester.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
         }
         void ListViewCuerinasRefresh()

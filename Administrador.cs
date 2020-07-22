@@ -18,10 +18,6 @@ namespace Sistem_de_inventario
             MySqlConnection conexionTapiceria = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=tapiceriadb;");
             conexionTapiceria.Open();
             return conexionTapiceria;
-            //Conexion SQL SERVER
-            //SqlConnection conexionTapiceria = new SqlConnection(@"Server=DESKTOP-RSTVNVT\SQLEXPRESS;Database=TapiceriaDB;Trusted_Connection=True;");
-            //conexionTapiceria.Open();
-            //return conexionTapiceria;
         }
         private void CrearParametro<T>(IDbCommand auxCommand, string auxNombre, T auxValue)
         {
