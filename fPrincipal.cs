@@ -20,11 +20,12 @@ namespace Sistem_de_inventario
         public static decimal Total;
         private static decimal AnchoPlanchaPoliester;
         public static ListViewItem ItemSeleccionado;
+        //FUNCIONES DE INICIO
         public FPrincipal()
         {
             InitializeComponent();
-            Init();
-            FormularioDeCarga();
+            Init();                 //INICIALIZACION DE INSTANCIAS Y VARIABLES
+            FormularioDeCarga();    //ESTA FUNCION SIMULA UNA PANTALLA DE LOADING
         }
         async void FormularioDeCarga()
         {
@@ -65,12 +66,7 @@ namespace Sistem_de_inventario
             }
             SetDolarWeb(ListaDolar);
         }
-        void FPrincipalTxtClear()
-        {
-            this.txtAncho.Clear();
-            this.txtLargo.Clear();
-            this.txtSubTotal.Clear();
-        }
+        //FUNCIONES DE SETEO
         void SetearColor(Color aux)
         {
             this.pictureBoxTitulo.BackColor = aux;
@@ -98,12 +94,6 @@ namespace Sistem_de_inventario
             this.lblSimboloPesos.BackColor = aux;
             this.lblSimboloPesos2.BackColor = aux;
         }
-        void ActualizarTamañoColumnas()
-        {
-            this.listViewPoliester.Columns[1].Width = this.Width - 514;
-            this.listViewCuerinas.Columns[1].Width = this.Width - 574;
-            this.listViewArticulos.Columns[1].Width = this.Width - 554;
-        }
         void SetDolarDefault()
         {
             Dolar = Properties.Settings.Default.Dolar;
@@ -130,6 +120,19 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.DolarBlue = Convert.ToDecimal(this.txtDolarBlue.Text);
                 Properties.Settings.Default.Save();
             }
+        }
+        //FUNCIONES DE REFRESCO
+        void FPrincipalTxtClear()
+        {
+            this.txtAncho.Clear();
+            this.txtLargo.Clear();
+            this.txtSubTotal.Clear();
+        }
+        void ActualizarTamañoColumnas()
+        {
+            this.listViewPoliester.Columns[1].Width = this.Width - 514;
+            this.listViewCuerinas.Columns[1].Width = this.Width - 574;
+            this.listViewArticulos.Columns[1].Width = this.Width - 554;
         }
         void ListViewPoliesterRefresh()
         {
@@ -172,6 +175,38 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(Convert.ToString(Math.Round((articulo.Precio + ((articulo.Precio * articulo.PorcDeGanancia) / 100)), 2)));
             });
         }
+        //EVENTOS DE SELECCION
+        private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            FPrincipalTxtClear();
+            if (cPestañas.SelectedTab == pPoliester)
+            {
+                PestañaActual = 1;
+                ListViewPoliesterRefresh();
+                ActualizarTamañoColumnas();
+                this.txtAncho.Enabled = true;
+            }
+            if (cPestañas.SelectedTab == pCuerinas)
+            {
+                PestañaActual = 2;
+                ListViewCuerinasRefresh();
+                ActualizarTamañoColumnas();
+                this.txtAncho.Enabled = false;
+            }
+            if (cPestañas.SelectedTab == pArticulos)
+            {
+                PestañaActual = 3;
+                ListViewArticulosRefresh();
+                ActualizarTamañoColumnas();
+                this.txtAncho.Enabled = false;
+            }
+        }
+        private void ListViewCuerinas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListViewItem item = listViewCuerinas.FocusedItem;
+            if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
+        }
+        //EVENTOS DE BOTONES
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             ModoEditar = false;
@@ -202,6 +237,39 @@ namespace Sistem_de_inventario
                     {
                         if (listViewArticulos.FocusedItem != null)
                         { ItemSeleccionado = listViewArticulos.FocusedItem; _Administrador.EjecutarFormArticulos(); }
+                    }; break;
+            }
+        }
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            switch (PestañaActual)
+            {
+                case 1:
+                    {
+                        if (listViewPoliester.FocusedItem != null)
+                        {
+                            ListViewItem Item = listViewPoliester.FocusedItem;
+                            if (_Validaciones.EliminarResult())
+                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewPoliesterRefresh(); }
+                        }
+                    }; break;
+                case 2:
+                    {
+                        if (listViewCuerinas.FocusedItem != null)
+                        {
+                            ListViewItem Item = listViewCuerinas.FocusedItem;
+                            if (_Validaciones.EliminarResult())
+                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewCuerinasRefresh(); }
+                        }
+                    }; break;
+                case 3:
+                    {
+                        if (listViewArticulos.FocusedItem != null)
+                        {
+                            ListViewItem Item = listViewArticulos.FocusedItem;
+                            if (_Validaciones.EliminarResult())
+                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewArticulosRefresh(); }
+                        }
                     }; break;
             }
         }
@@ -243,69 +311,7 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            switch (PestañaActual)
-            {
-                case 1:
-                    {
-                        if (listViewPoliester.FocusedItem != null)
-                        {
-                            ListViewItem Item = listViewPoliester.FocusedItem;
-                            if (_Validaciones.EliminarResult())
-                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewPoliesterRefresh(); }
-                        }
-                    }; break;
-                case 2:
-                    {
-                        if (listViewCuerinas.FocusedItem != null)
-                        {
-                            ListViewItem Item = listViewCuerinas.FocusedItem;
-                            if (_Validaciones.EliminarResult())
-                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewCuerinasRefresh(); }
-                        }
-                    }; break;
-                case 3:
-                    {
-                        if (listViewArticulos.FocusedItem != null)
-                        {
-                            ListViewItem Item = listViewArticulos.FocusedItem;
-                            if (_Validaciones.EliminarResult())
-                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewArticulosRefresh(); }
-                        }
-                    }; break;
-            }
-        }
-        private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            FPrincipalTxtClear();
-            if (cPestañas.SelectedTab == pPoliester)
-            {
-                PestañaActual = 1;
-                ListViewPoliesterRefresh();
-                ActualizarTamañoColumnas();
-                this.txtAncho.Enabled = true;
-            }
-            if (cPestañas.SelectedTab == pCuerinas)
-            {
-                PestañaActual = 2;
-                ListViewCuerinasRefresh();
-                ActualizarTamañoColumnas();
-                this.txtAncho.Enabled = false;
-            }
-            if (cPestañas.SelectedTab == pArticulos)
-            {
-                PestañaActual = 3;
-                ListViewArticulosRefresh();
-                ActualizarTamañoColumnas();
-                this.txtAncho.Enabled = false;
-            }
-        }
-        private void ListViewCuerinas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ListViewItem item = listViewCuerinas.FocusedItem;
-            if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
-        }
+        //EVENTOS DE TEXTBOX
         private void TxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumerosYComa(e);
@@ -357,15 +363,20 @@ namespace Sistem_de_inventario
                 case 3: ListViewArticulosRefresh(); break;
             }
         }
-        private void FPrincipal_Activated(object sender, EventArgs e)
+        private void TxtSubTotal_TextChanged(object sender, EventArgs e)
         {
-            switch (PestañaActual)
+            if (!fPrincipalCheckBox1.Checked && !fPrincipalCheckBox2.Checked && !fPrincipalCheckBox3.Checked)
+            { this.txtTotal.Text = this.txtSubTotal.Text; }
+        }
+        private void TxtTotal_TextChanged(object sender, EventArgs e)
+        {
+            if (_Validaciones.EsDecimal(this.txtTotal.Text))
             {
-                case 1: ListViewPoliesterRefresh(); break;
-                case 2: ListViewCuerinasRefresh(); break;
-                case 3: ListViewArticulosRefresh(); break;
+                if (Convert.ToDecimal(this.txtTotal.Text) == 0 && !_Validaciones.EsNullOTieneEspaciosEnBlanco(this.txtSubTotal.Text))
+                { this.txtTotal.Text = this.txtSubTotal.Text; }
             }
         }
+        //EVENTOS DE CHECKBOX
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
         {
             if (!_Validaciones.EsDecimal(fPrincipalCheckBox1.Text)) { fPrincipalCheckBox1.Checked = false; }
@@ -423,17 +434,14 @@ namespace Sistem_de_inventario
                 fPrincipalCheckBox3.Text = "...";
             }
         }
-        private void TxtSubTotal_TextChanged(object sender, EventArgs e)
+        //OTROS EVENTOS
+        private void FPrincipal_Activated(object sender, EventArgs e)
         {
-            if (!fPrincipalCheckBox1.Checked && !fPrincipalCheckBox2.Checked && !fPrincipalCheckBox3.Checked)
-            { this.txtTotal.Text = this.txtSubTotal.Text; }
-        }
-        private void TxtTotal_TextChanged(object sender, EventArgs e)
-        {
-            if (_Validaciones.EsDecimal(this.txtTotal.Text))
+            switch (PestañaActual)
             {
-                if (Convert.ToDecimal(this.txtTotal.Text) == 0 && !_Validaciones.EsNullOTieneEspaciosEnBlanco(this.txtSubTotal.Text))
-                { this.txtTotal.Text = this.txtSubTotal.Text; }
+                case 1: ListViewPoliesterRefresh(); break;
+                case 2: ListViewCuerinasRefresh(); break;
+                case 3: ListViewArticulosRefresh(); break;
             }
         }
         private void FPrincipal_Resize(object sender, EventArgs e)

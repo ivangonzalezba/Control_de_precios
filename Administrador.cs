@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Sistem_de_inventario
 {
@@ -14,10 +15,19 @@ namespace Sistem_de_inventario
         //Conexión a base de datos
         private IDbConnection CrearConexionTapiceria()
         {
-            //Conexion MySQL
-            MySqlConnection conexionTapiceria = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=tapiceriadb;");
-            conexionTapiceria.Open();
-            return conexionTapiceria;
+            try
+            {
+                //Conexion MySQL
+                MySqlConnection conexionTapiceria = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=tapiceriadb;");
+                conexionTapiceria.Open();
+                return conexionTapiceria;
+            }
+            catch
+            {
+                MessageBox.Show("Error al conectar con la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Environment.Exit(Environment.ExitCode);
+                return null; //codigo inaccesible
+            }
         }
         private void CrearParametro<T>(IDbCommand auxCommand, string auxNombre, T auxValue)
         {
