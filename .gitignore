@@ -10,6 +10,7 @@
 
 # Git bash
 .bash_history
+.viminfo
 
 # User-specific files
 *.rsuser
