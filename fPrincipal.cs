@@ -98,7 +98,7 @@ namespace Sistem_de_inventario
             this.lblSimboloPesos.BackColor = aux;
             this.lblSimboloPesos2.BackColor = aux;
         }
-        void ActualiarTamañoColumnas()
+        void ActualizarTamañoColumnas()
         {
             this.listViewPoliester.Columns[1].Width = this.Width - 514;
             this.listViewCuerinas.Columns[1].Width = this.Width - 574;
@@ -283,21 +283,21 @@ namespace Sistem_de_inventario
             {
                 PestañaActual = 1;
                 ListViewPoliesterRefresh();
-                ActualiarTamañoColumnas();
+                ActualizarTamañoColumnas();
                 this.txtAncho.Enabled = true;
             }
             if (cPestañas.SelectedTab == pCuerinas)
             {
                 PestañaActual = 2;
                 ListViewCuerinasRefresh();
-                ActualiarTamañoColumnas();
+                ActualizarTamañoColumnas();
                 this.txtAncho.Enabled = false;
             }
             if (cPestañas.SelectedTab == pArticulos)
             {
                 PestañaActual = 3;
                 ListViewArticulosRefresh();
-                ActualiarTamañoColumnas();
+                ActualizarTamañoColumnas();
                 this.txtAncho.Enabled = false;
             }
         }
@@ -438,7 +438,7 @@ namespace Sistem_de_inventario
         }
         private void FPrincipal_Resize(object sender, EventArgs e)
         {
-            ActualiarTamañoColumnas();
+            ActualizarTamañoColumnas();
         }
     }
 }
