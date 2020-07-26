@@ -259,8 +259,7 @@ namespace Sistem_de_inventario
             {
                 using (IDbCommand command = conexionIDB.CreateCommand())
                 {
-                    command.CommandText =
-                        "UPDATE Articulos SET Porcentaje=@PorcDeGanancia";
+                    command.CommandText = "UPDATE Articulos SET Porcentaje= Porcentaje + @PorcDeGanancia";
 
                     CrearParametro(command, "PorcDeGanancia", auxPorcentaje);
 

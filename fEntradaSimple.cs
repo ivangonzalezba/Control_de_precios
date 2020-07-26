@@ -36,7 +36,7 @@ namespace Sistem_de_inventario
         }
         private void fPorcentajeTxtbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            _Validaciones.SoloNumerosYComa(e);
+            _Validaciones.SoloNumerosYResta(e);
             if (_Validaciones.EnterEsPresionado(e)) { GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
     }

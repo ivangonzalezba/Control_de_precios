@@ -11,6 +11,13 @@ namespace Sistem_de_inventario
                 e.Handled = true;
             }
         }
+        public void SoloNumerosYResta(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+        }
         public bool EnterEsPresionado(KeyPressEventArgs e)
         {
             return e.KeyChar == (char)13;
