@@ -146,7 +146,7 @@
             this.fPolBtnAceptar.UseVisualStyleBackColor = false;
             this.fPolBtnAceptar.Click += new System.EventHandler(this.FPolBtnAceptar_Click);
             // 
-            // fPoliester
+            // FPoliester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,8 +163,8 @@
             this.Controls.Add(this.fPolLbl1);
             this.Controls.Add(this.fPolBtnCancelar);
             this.Controls.Add(this.fPolBtnAceptar);
-            this.Name = "fPoliester";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "FPoliester";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo";
             this.ResumeLayout(false);
             this.PerformLayout();

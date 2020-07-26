@@ -76,6 +76,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrador.cs" />
@@ -98,6 +99,12 @@
     </Compile>
     <Compile Include="fCuerina.Designer.cs">
       <DependentUpon>fCuerina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fEntradaSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fEntradaSimple.Designer.cs">
+      <DependentUpon>fEntradaSimple.cs</DependentUpon>
     </Compile>
     <Compile Include="fPoliester.cs">
       <SubType>Form</SubType>
@@ -123,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fCuerina.resx">
       <DependentUpon>fCuerina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fEntradaSimple.resx">
+      <DependentUpon>fEntradaSimple.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fPoliester.resx">
       <DependentUpon>fPoliester.cs</DependentUpon>

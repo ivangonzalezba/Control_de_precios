@@ -187,7 +187,7 @@
             this.Controls.Add(this.fCuerBtnCancelar);
             this.Controls.Add(this.fCuerBtnAceptar);
             this.Name = "fCuerina";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo";
             this.ResumeLayout(false);
             this.PerformLayout();

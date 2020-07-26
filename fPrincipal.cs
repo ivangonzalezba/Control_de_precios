@@ -315,11 +315,7 @@ namespace Sistem_de_inventario
         private void TxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumerosYComa(e);
-            if (_Validaciones.EnterEsPresionado(e))
-            {
-                this.GetNextControl(ActiveControl, true).Focus();
-                e.Handled = true;
-            }
+            if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
         private void TxtAncho_Validating(object sender, CancelEventArgs e)
         {
@@ -329,11 +325,7 @@ namespace Sistem_de_inventario
         private void TxtLargo_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumerosYComa(e);
-            if (_Validaciones.EnterEsPresionado(e))
-            {
-                this.GetNextControl(ActiveControl, true).Focus();
-                e.Handled = true;
-            }
+            if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
         private void TxtLargo_Validating(object sender, CancelEventArgs e)
         {
@@ -343,11 +335,7 @@ namespace Sistem_de_inventario
         private void TxtDolarLocal_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumerosYComa(e);
-            if (_Validaciones.EnterEsPresionado(e))
-            {
-                this.GetNextControl(ActiveControl, true).Focus();
-                e.Handled = true;
-            }
+            if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
         private void TxtDolarLocal_Validating(object sender, CancelEventArgs e)
         {
@@ -447,6 +435,13 @@ namespace Sistem_de_inventario
         private void FPrincipal_Resize(object sender, EventArgs e)
         {
             ActualizarTamañoColumnas();
+        }
+        private void listViewArticulos_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == 3) 
+            {
+                _Administrador.EjecutarFormEntradaSimple();
+            }
         }
     }
 }

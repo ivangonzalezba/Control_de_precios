@@ -152,7 +152,7 @@
             this.Controls.Add(this.fArtBtnCancelar);
             this.Controls.Add(this.fArtBtnAceptar);
             this.Name = "fArticulos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo";
             this.ResumeLayout(false);
             this.PerformLayout();

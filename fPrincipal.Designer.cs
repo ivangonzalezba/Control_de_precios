@@ -252,6 +252,7 @@
             this.listViewArticulos.TabIndex = 0;
             this.listViewArticulos.UseCompatibleStateImageBehavior = false;
             this.listViewArticulos.View = System.Windows.Forms.View.Details;
+            this.listViewArticulos.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewArticulos_ColumnClick);
             // 
             // colArticulosID
             // 

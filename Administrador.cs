@@ -12,6 +12,7 @@ namespace Sistem_de_inventario
         public void EjecutarFormCuerinas() { fCuerina formulario = new fCuerina(); formulario.ShowDialog(); }
         public void EjecutarFormPoliester() { FPoliester formulario = new FPoliester(); formulario.ShowDialog(); }
         public void EjecutarFormArticulos() { fArticulos formulario = new fArticulos(); formulario.ShowDialog(); }
+        public void EjecutarFormEntradaSimple() { fEntradaSimple formulario = new fEntradaSimple(); formulario.ShowDialog(); }
         //Conexión a base de datos
         private IDbConnection CrearConexionTapiceria()
         {
@@ -249,6 +250,21 @@ namespace Sistem_de_inventario
                                 command.ExecuteNonQuery();
                             }; break;
                     }
+                }
+            }
+        }
+        public void ActualizarPorcentajeArticulos(int auxPorcentaje)
+        {
+            using (IDbConnection conexionIDB = CrearConexionTapiceria())
+            {
+                using (IDbCommand command = conexionIDB.CreateCommand())
+                {
+                    command.CommandText =
+                        "UPDATE Articulos SET Porcentaje=@PorcDeGanancia";
+
+                    CrearParametro(command, "PorcDeGanancia", auxPorcentaje);
+
+                    command.ExecuteNonQuery();
                 }
             }
         }
