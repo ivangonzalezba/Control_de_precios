@@ -154,6 +154,7 @@
             this.Name = "fArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,7 +44,7 @@
             this.fEntradaBtnAceptar.Location = new System.Drawing.Point(107, 148);
             this.fEntradaBtnAceptar.Name = "fEntradaBtnAceptar";
             this.fEntradaBtnAceptar.Size = new System.Drawing.Size(101, 29);
-            this.fEntradaBtnAceptar.TabIndex = 35;
+            this.fEntradaBtnAceptar.TabIndex = 36;
             this.fEntradaBtnAceptar.Text = "Aceptar";
             this.fEntradaBtnAceptar.UseVisualStyleBackColor = false;
             this.fEntradaBtnAceptar.Click += new System.EventHandler(this.fEntradaBtnAceptar_Click);
@@ -59,7 +59,7 @@
             this.fEntradaBtnCancelar.Location = new System.Drawing.Point(274, 148);
             this.fEntradaBtnCancelar.Name = "fEntradaBtnCancelar";
             this.fEntradaBtnCancelar.Size = new System.Drawing.Size(101, 29);
-            this.fEntradaBtnCancelar.TabIndex = 36;
+            this.fEntradaBtnCancelar.TabIndex = 37;
             this.fEntradaBtnCancelar.Text = "Cancelar";
             this.fEntradaBtnCancelar.UseVisualStyleBackColor = false;
             this.fEntradaBtnCancelar.Click += new System.EventHandler(this.fEntradaBtnCancelar_Click);
@@ -69,7 +69,7 @@
             this.fPorcentajeTxtbox.Location = new System.Drawing.Point(46, 73);
             this.fPorcentajeTxtbox.Name = "fPorcentajeTxtbox";
             this.fPorcentajeTxtbox.Size = new System.Drawing.Size(150, 20);
-            this.fPorcentajeTxtbox.TabIndex = 37;
+            this.fPorcentajeTxtbox.TabIndex = 35;
             this.fPorcentajeTxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fPorcentajeTxtbox_KeyPress);
             this.fPorcentajeTxtbox.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
             // 

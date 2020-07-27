@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySqlX.XDevAPI.Relational;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -19,7 +21,9 @@ namespace Sistem_de_inventario
         public static bool ModoEditar;
         public static decimal Total;
         private static decimal AnchoPlanchaPoliester;
+        private static int OrdenarPor;
         public static ListViewItem ItemSeleccionado;
+
         //FUNCIONES DE INICIO
         public FPrincipal()
         {
@@ -47,8 +51,10 @@ namespace Sistem_de_inventario
             ModoEditar = false;
             Total = 0;
             AnchoPlanchaPoliester = 1.9m;
+            OrdenarPor = 0;
             SetDolarDefault();
             ListViewPoliesterRefresh();
+
             //Recursos WEB
             Navegador = new WebBrowser { ScriptErrorsSuppressed = true };
             Navegador.Navigate("https://www.dolarhoy.com");
@@ -66,6 +72,7 @@ namespace Sistem_de_inventario
             }
             SetDolarWeb(ListaDolar);
         }
+
         //FUNCIONES DE SETEO
         void SetearColor(Color aux)
         {
@@ -111,7 +118,7 @@ namespace Sistem_de_inventario
                 this.txtDolarBlue.Text = auxListaDolar[3];
                 Navegador.Dispose();
             }
-            catch { MessageBox.Show("Error al actualizar valores del dolar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            catch { MessageBox.Show("Error al actualizar valores del dólar, compruebe su conexión a internet y reinicie la aplicación", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             finally
             {
                 Properties.Settings.Default.Dolar = Convert.ToDecimal(this.txtDolarLocal.Text);
@@ -121,6 +128,7 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
+
         //FUNCIONES DE REFRESCO
         void FPrincipalTxtClear()
         {
@@ -162,10 +170,10 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(Convert.ToString(Math.Round(((cuerina.Precio + ((cuerina.Precio * cuerina.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
         }
-        void ListViewArticulosRefresh()
+        void ListViewArticulosRefresh(string auxCol = "articulosID", string auxOrd = "ASC")
         {
             this.listViewArticulos.Items.Clear();
-            List<Articulos> listaArticulos = _Administrador.CargarListaArticulos();
+            List<Articulos> listaArticulos = _Administrador.CargarListaArticulos(auxCol, auxOrd);
             listaArticulos.ForEach(articulo =>
             {
                 ListViewItem item = this.listViewArticulos.Items.Add(Convert.ToString(articulo.ID));
@@ -175,6 +183,7 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(Convert.ToString(Math.Round((articulo.Precio + ((articulo.Precio * articulo.PorcDeGanancia) / 100)), 2)));
             });
         }
+
         //EVENTOS DE SELECCION
         private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -206,6 +215,7 @@ namespace Sistem_de_inventario
             ListViewItem item = listViewCuerinas.FocusedItem;
             if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
         }
+
         //EVENTOS DE BOTONES
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -311,6 +321,7 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
+
         //EVENTOS DE TEXTBOX
         private void TxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -364,6 +375,7 @@ namespace Sistem_de_inventario
                 { this.txtTotal.Text = this.txtSubTotal.Text; }
             }
         }
+
         //EVENTOS DE CHECKBOX
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
         {
@@ -422,6 +434,7 @@ namespace Sistem_de_inventario
                 fPrincipalCheckBox3.Text = "...";
             }
         }
+
         //OTROS EVENTOS
         private void FPrincipal_Activated(object sender, EventArgs e)
         {
@@ -438,10 +451,13 @@ namespace Sistem_de_inventario
         }
         private void listViewArticulos_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            if (e.Column == 3) 
+            switch (e.Column)
             {
-                _Administrador.EjecutarFormEntradaSimple();
+                case 1: if (OrdenarPor == 0) { ListViewArticulosRefresh("Descripcion", "ASC"); OrdenarPor = 1; }
+                    else { ListViewArticulosRefresh("Descripcion", "DESC"); OrdenarPor = 0; } ; break;
+                case 3: _Administrador.EjecutarFormEntradaSimple(); break;
             }
+
         }
     }
 }

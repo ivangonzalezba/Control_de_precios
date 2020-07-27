@@ -90,14 +90,14 @@ namespace Sistem_de_inventario
             }
             return listaPoliester;
         }
-        public List<Articulos> CargarListaArticulos()
+        public List<Articulos> CargarListaArticulos(string auxCol, string auxOrd)
         {
             List<Articulos> listaArticulos = new List<Articulos>();
             using (IDbConnection conexionIDB = CrearConexionTapiceria())
             {
                 using (IDbCommand commandSQL = conexionIDB.CreateCommand())
                 {
-                    commandSQL.CommandText = "SELECT * FROM Articulos";
+                    commandSQL.CommandText = $"SELECT * FROM Articulos ORDER BY {auxCol} {auxOrd} ";
                     //articulosID, Descripcion, Precio, Porcentaje
                     using (IDataReader dataReader = commandSQL.ExecuteReader())
                     {

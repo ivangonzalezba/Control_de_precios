@@ -71,7 +71,7 @@ namespace Sistem_de_inventario
         }
         private void fCuerTxtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
         {
-            _Validaciones.SoloNumerosYComa(e);
+            _Validaciones.SoloNumeros(e);
             if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
         private void fCuerTxtAncho_Validating(object sender, CancelEventArgs e)
