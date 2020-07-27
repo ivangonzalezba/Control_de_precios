@@ -41,7 +41,7 @@
             this.fEntradaBtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.fEntradaBtnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fEntradaBtnAceptar.ForeColor = System.Drawing.Color.White;
-            this.fEntradaBtnAceptar.Location = new System.Drawing.Point(107, 148);
+            this.fEntradaBtnAceptar.Location = new System.Drawing.Point(172, 188);
             this.fEntradaBtnAceptar.Name = "fEntradaBtnAceptar";
             this.fEntradaBtnAceptar.Size = new System.Drawing.Size(101, 29);
             this.fEntradaBtnAceptar.TabIndex = 36;
@@ -56,7 +56,7 @@
             this.fEntradaBtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.fEntradaBtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fEntradaBtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.fEntradaBtnCancelar.Location = new System.Drawing.Point(274, 148);
+            this.fEntradaBtnCancelar.Location = new System.Drawing.Point(340, 188);
             this.fEntradaBtnCancelar.Name = "fEntradaBtnCancelar";
             this.fEntradaBtnCancelar.Size = new System.Drawing.Size(101, 29);
             this.fEntradaBtnCancelar.TabIndex = 37;
@@ -66,7 +66,7 @@
             // 
             // fPorcentajeTxtbox
             // 
-            this.fPorcentajeTxtbox.Location = new System.Drawing.Point(46, 73);
+            this.fPorcentajeTxtbox.Location = new System.Drawing.Point(94, 98);
             this.fPorcentajeTxtbox.Name = "fPorcentajeTxtbox";
             this.fPorcentajeTxtbox.Size = new System.Drawing.Size(150, 20);
             this.fPorcentajeTxtbox.TabIndex = 35;
@@ -77,7 +77,7 @@
             // 
             this.fEntradalbl.AutoSize = true;
             this.fEntradalbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fEntradalbl.Location = new System.Drawing.Point(42, 37);
+            this.fEntradalbl.Location = new System.Drawing.Point(90, 62);
             this.fEntradalbl.Name = "fEntradalbl";
             this.fEntradalbl.Size = new System.Drawing.Size(166, 20);
             this.fEntradalbl.TabIndex = 38;
@@ -87,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(202, 73);
+            this.label1.Location = new System.Drawing.Point(250, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(273, 20);
             this.label1.TabIndex = 39;
@@ -98,7 +98,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.fEntradaBtnCancelar;
-            this.ClientSize = new System.Drawing.Size(516, 214);
+            this.ClientSize = new System.Drawing.Size(612, 246);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fEntradalbl);
