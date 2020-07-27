@@ -134,6 +134,7 @@
             this.listViewPoliester.TabIndex = 0;
             this.listViewPoliester.UseCompatibleStateImageBehavior = false;
             this.listViewPoliester.View = System.Windows.Forms.View.Details;
+            this.listViewPoliester.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewPoliester_ColumnClick);
             // 
             // colPoliesterID
             // 
@@ -191,6 +192,7 @@
             this.listViewCuerinas.TabIndex = 0;
             this.listViewCuerinas.UseCompatibleStateImageBehavior = false;
             this.listViewCuerinas.View = System.Windows.Forms.View.Details;
+            this.listViewCuerinas.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewCuerinas_ColumnClick);
             this.listViewCuerinas.SelectedIndexChanged += new System.EventHandler(this.ListViewCuerinas_SelectedIndexChanged);
             // 
             // colID
@@ -721,7 +723,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de precios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            //this.Activated += new System.EventHandler(this.FPrincipal_Activated);
             this.Resize += new System.EventHandler(this.FPrincipal_Resize);
             this.cPestañas.ResumeLayout(false);
             this.pPoliester.ResumeLayout(false);

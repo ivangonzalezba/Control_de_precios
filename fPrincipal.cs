@@ -193,7 +193,46 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(Convert.ToString(Math.Round((articulo.Precio + ((articulo.Precio * articulo.PorcDeGanancia) / 100)), 2)));
             });
         }
-
+        void Ordenar(ColumnClickEventArgs e, string auxTipo)
+        {
+            if (auxTipo.Equals("poliester"))
+            { 
+                switch (e.Column)
+                {
+                    case 0: { PoliesterOrdenarPorCol = "poliesterID";
+                            if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
+                            else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break; }
+                    case 1: {PoliesterOrdenarPorCol = "Nombre";
+                            if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
+                            else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break; }
+                }
+            }
+            if (auxTipo.Equals("cuerina"))
+            { 
+                switch (e.Column)
+                {
+                    case 0: { CuerinasOrdenarPorCol = "cuerinasID";
+                            if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
+                            else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break; }
+                    case 1: {CuerinasOrdenarPorCol = "Nombre";
+                            if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
+                            else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break; }
+                }
+            }
+            if (auxTipo.Equals("articulo"))
+            {
+                switch (e.Column)
+                {
+                    case 0: { ArticulosOrdenarPorCol = "articulosID";
+                            if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
+                    case 1: {ArticulosOrdenarPorCol = "Descripcion";
+                            if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
+                    case 3: _Administrador.EjecutarFormEntradaSimple(); break;
+                }
+            }
+        }
         //EVENTOS DE SELECCION
         private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -445,6 +484,20 @@ namespace Sistem_de_inventario
             }
         }
 
+        //EVENTOS COLUMNCLICK
+        private void listViewPoliester_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            Ordenar(e, "poliester");
+        }
+        private void listViewCuerinas_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            Ordenar(e, "cuerinas");
+        }
+        private void listViewArticulos_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            Ordenar(e, "articulo");
+        }
+
         //OTROS EVENTOS
         //private void FPrincipal_Activated(object sender, EventArgs e)
         //{
@@ -458,23 +511,6 @@ namespace Sistem_de_inventario
         private void FPrincipal_Resize(object sender, EventArgs e)
         {
             ActualizarTamañoColumnas();
-        }
-        private void listViewArticulos_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            switch (e.Column)
-            {
-                case 0: { ArticulosOrdenarPorCol = "articulosID";
-                            if (ArticulosASCoDESC.Equals("ASC"))
-                                { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
-                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
-                case 1: { ArticulosOrdenarPorCol = "Descripcion";
-                            if (ArticulosASCoDESC.Equals("ASC"))
-                                { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
-                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
-                    
-                case 3: _Administrador.EjecutarFormEntradaSimple(); break;
-            }
-
         }
     }
 }
