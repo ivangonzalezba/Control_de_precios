@@ -21,7 +21,12 @@ namespace Sistem_de_inventario
         public static bool ModoEditar;
         public static decimal Total;
         private static decimal AnchoPlanchaPoliester;
-        private static int OrdenarPor;
+        private static string PoliesterASCoDESC;
+        private static string CuerinasASCoDESC;
+        private static string ArticulosASCoDESC;
+        private static string PoliesterOrdenarPorCol;
+        private static string CuerinasOrdenarPorCol;
+        private static string ArticulosOrdenarPorCol;
         public static ListViewItem ItemSeleccionado;
 
         //FUNCIONES DE INICIO
@@ -51,7 +56,12 @@ namespace Sistem_de_inventario
             ModoEditar = false;
             Total = 0;
             AnchoPlanchaPoliester = 1.9m;
-            OrdenarPor = 0;
+            PoliesterASCoDESC = Properties.Settings.Default.ArticulosASCoDESC;
+            CuerinasASCoDESC = Properties.Settings.Default.CuerinasASCoDESC;
+            ArticulosASCoDESC = Properties.Settings.Default.PoliesterASCoDESC;
+            PoliesterOrdenarPorCol = Properties.Settings.Default.PoliesterOrderBy;
+            CuerinasOrdenarPorCol = Properties.Settings.Default.CuerinasOrderBy;
+            ArticulosOrdenarPorCol = Properties.Settings.Default.ArticulosOrderBy;
             SetDolarDefault();
             ListViewPoliesterRefresh();
 
@@ -145,7 +155,7 @@ namespace Sistem_de_inventario
         void ListViewPoliesterRefresh()
         {
             this.listViewPoliester.Items.Clear();
-            List<Poliester> listaPoliester = _Administrador.CargarListaPoliester();
+            List<Poliester> listaPoliester = _Administrador.CargarListaPoliester(PoliesterOrdenarPorCol, PoliesterASCoDESC);
             listaPoliester.ForEach(poliester =>
             {
                 ListViewItem item = new ListViewItem(Convert.ToString(poliester.ID));
@@ -159,7 +169,7 @@ namespace Sistem_de_inventario
         void ListViewCuerinasRefresh()
         {
             this.listViewCuerinas.Items.Clear();
-            List<Cuerinas> listaCuerinas = _Administrador.CargarListaCuerinas();
+            List<Cuerinas> listaCuerinas = _Administrador.CargarListaCuerinas(CuerinasOrdenarPorCol, CuerinasASCoDESC);
             listaCuerinas.ForEach(cuerina =>
             {
                 ListViewItem item = this.listViewCuerinas.Items.Add(Convert.ToString(cuerina.ID));
@@ -170,10 +180,10 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(Convert.ToString(Math.Round(((cuerina.Precio + ((cuerina.Precio * cuerina.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
         }
-        void ListViewArticulosRefresh(string auxCol = "articulosID", string auxOrd = "ASC")
+        void ListViewArticulosRefresh()
         {
             this.listViewArticulos.Items.Clear();
-            List<Articulos> listaArticulos = _Administrador.CargarListaArticulos(auxCol, auxOrd);
+            List<Articulos> listaArticulos = _Administrador.CargarListaArticulos(ArticulosOrdenarPorCol, ArticulosASCoDESC);
             listaArticulos.ForEach(articulo =>
             {
                 ListViewItem item = this.listViewArticulos.Items.Add(Convert.ToString(articulo.ID));
@@ -436,15 +446,15 @@ namespace Sistem_de_inventario
         }
 
         //OTROS EVENTOS
-        private void FPrincipal_Activated(object sender, EventArgs e)
-        {
-            switch (PestañaActual)
-            {
-                case 1: ListViewPoliesterRefresh(); break;
-                case 2: ListViewCuerinasRefresh(); break;
-                case 3: ListViewArticulosRefresh(); break;
-            }
-        }
+        //private void FPrincipal_Activated(object sender, EventArgs e)
+        //{
+        //    switch (PestañaActual)
+        //    {
+        //        case 1: ListViewPoliesterRefresh(); break;
+        //        case 2: ListViewCuerinasRefresh(); break;
+        //        case 3: ListViewArticulosRefresh(); break;
+        //    }
+        //}
         private void FPrincipal_Resize(object sender, EventArgs e)
         {
             ActualizarTamañoColumnas();
@@ -453,8 +463,15 @@ namespace Sistem_de_inventario
         {
             switch (e.Column)
             {
-                case 1: if (OrdenarPor == 0) { ListViewArticulosRefresh("Descripcion", "ASC"); OrdenarPor = 1; }
-                    else { ListViewArticulosRefresh("Descripcion", "DESC"); OrdenarPor = 0; } ; break;
+                case 0: { ArticulosOrdenarPorCol = "articulosID";
+                            if (ArticulosASCoDESC.Equals("ASC"))
+                                { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
+                case 1: { ArticulosOrdenarPorCol = "Descripcion";
+                            if (ArticulosASCoDESC.Equals("ASC"))
+                                { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
+                    
                 case 3: _Administrador.EjecutarFormEntradaSimple(); break;
             }
 

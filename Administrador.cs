@@ -25,7 +25,7 @@ namespace Sistem_de_inventario
             }
             catch
             {
-                MessageBox.Show("Error al conectar con la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Error al conectar con la base de datos, contacte con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Environment.Exit(Environment.ExitCode);
                 return null; //codigo inaccesible
             }
@@ -37,14 +37,14 @@ namespace Sistem_de_inventario
             parametro.Value = auxValue;
             auxCommand.Parameters.Add(parametro);
         }
-        public List<Cuerinas> CargarListaCuerinas()
+        public List<Cuerinas> CargarListaCuerinas(string auxCol, string auxOrd)
         {
             List<Cuerinas> listaCuerinas = new List<Cuerinas>();
             using (IDbConnection conexionIDB = CrearConexionTapiceria())
             {
                 using (IDbCommand commandSQL = conexionIDB.CreateCommand())
                 {
-                    commandSQL.CommandText = "SELECT * FROM Cuerinas";
+                    commandSQL.CommandText = $"SELECT * FROM Cuerinas ORDER BY {auxCol} {auxOrd} ";
                     //cuerinasID, Nombre, Ancho, Precio, Porcentaje
                     using (IDataReader dataReader = commandSQL.ExecuteReader())
                     {
@@ -64,14 +64,14 @@ namespace Sistem_de_inventario
             }
             return listaCuerinas;
         }
-        public List<Poliester> CargarListaPoliester()
+        public List<Poliester> CargarListaPoliester(string auxCol, string auxOrd)
         {
             List<Poliester> listaPoliester = new List<Poliester>();
             using (IDbConnection conexionIDB = CrearConexionTapiceria())
             {
                 using (IDbCommand commandSQL = conexionIDB.CreateCommand())
                 {
-                    commandSQL.CommandText = "SELECT * FROM Poliester";
+                    commandSQL.CommandText = $"SELECT * FROM Poliester ORDER BY {auxCol} {auxOrd} ";
                     //poliesterID, Nombre, Precio, Porcentaje
                     using (IDataReader dataReader = commandSQL.ExecuteReader())
                     {

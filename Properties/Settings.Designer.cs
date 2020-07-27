@@ -25,7 +25,7 @@ namespace Sistem_de_inventario.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("75")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public decimal Dolar {
             get {
                 return ((decimal)(this["Dolar"]));
@@ -80,6 +80,78 @@ namespace Sistem_de_inventario.Properties {
             }
             set {
                 this["DolarBlue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("articulosID")]
+        public string ArticulosOrderBy {
+            get {
+                return ((string)(this["ArticulosOrderBy"]));
+            }
+            set {
+                this["ArticulosOrderBy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cuerinasID")]
+        public string CuerinasOrderBy {
+            get {
+                return ((string)(this["CuerinasOrderBy"]));
+            }
+            set {
+                this["CuerinasOrderBy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("poliesterID")]
+        public string PoliesterOrderBy {
+            get {
+                return ((string)(this["PoliesterOrderBy"]));
+            }
+            set {
+                this["PoliesterOrderBy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ASC")]
+        public string ArticulosASCoDESC {
+            get {
+                return ((string)(this["ArticulosASCoDESC"]));
+            }
+            set {
+                this["ArticulosASCoDESC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ASC")]
+        public string CuerinasASCoDESC {
+            get {
+                return ((string)(this["CuerinasASCoDESC"]));
+            }
+            set {
+                this["CuerinasASCoDESC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ASC")]
+        public string PoliesterASCoDESC {
+            get {
+                return ((string)(this["PoliesterASCoDESC"]));
+            }
+            set {
+                this["PoliesterASCoDESC"] = value;
             }
         }
     }

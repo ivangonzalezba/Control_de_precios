@@ -721,7 +721,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de precios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.FPrincipal_Activated);
+            //this.Activated += new System.EventHandler(this.FPrincipal_Activated);
             this.Resize += new System.EventHandler(this.FPrincipal_Resize);
             this.cPestañas.ResumeLayout(false);
             this.pPoliester.ResumeLayout(false);

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Dolar" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">75</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Color" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkGreen</Value>
@@ -16,6 +16,24 @@
     </Setting>
     <Setting Name="DolarBlue" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ArticulosOrderBy" Type="System.String" Scope="User">
+      <Value Profile="(Default)">articulosID</Value>
+    </Setting>
+    <Setting Name="CuerinasOrderBy" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cuerinasID</Value>
+    </Setting>
+    <Setting Name="PoliesterOrderBy" Type="System.String" Scope="User">
+      <Value Profile="(Default)">poliesterID</Value>
+    </Setting>
+    <Setting Name="ArticulosASCoDESC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ASC</Value>
+    </Setting>
+    <Setting Name="CuerinasASCoDESC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ASC</Value>
+    </Setting>
+    <Setting Name="PoliesterASCoDESC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ASC</Value>
     </Setting>
   </Settings>
 </SettingsFile>
