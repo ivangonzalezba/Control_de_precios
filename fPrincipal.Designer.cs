@@ -723,6 +723,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de precios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FPrincipal_FormClosing);
             this.Resize += new System.EventHandler(this.FPrincipal_Resize);
             this.cPestañas.ResumeLayout(false);
             this.pPoliester.ResumeLayout(false);

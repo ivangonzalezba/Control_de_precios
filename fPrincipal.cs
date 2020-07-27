@@ -28,12 +28,12 @@ namespace Sistem_de_inventario
         private static string CuerinasOrdenarPorCol;
         private static string ArticulosOrdenarPorCol;
         public static ListViewItem ItemSeleccionado;
-
-        //FUNCIONES DE INICIO
+         //////////////////////////////////
+        //////  FUNCIONES DE INICIO  /////
         public FPrincipal()
         {
             InitializeComponent();
-            Init();                 //INICIALIZACION DE INSTANCIAS Y VARIABLES
+            Init();                 //INICIALIZACIóN DE INSTANCIAS Y VARIABLES
             FormularioDeCarga();    //ESTA FUNCION SIMULA UNA PANTALLA DE LOADING
         }
         async void FormularioDeCarga()
@@ -51,21 +51,16 @@ namespace Sistem_de_inventario
             _fCargando = new fCargando();
             _Administrador = new Administrador();
             _Validaciones = new Validaciones();
-            SetearColor(Properties.Settings.Default.Color);
             PestañaActual = 1;
             ModoEditar = false;
             Total = 0;
             AnchoPlanchaPoliester = 1.9m;
-            PoliesterASCoDESC = Properties.Settings.Default.ArticulosASCoDESC;
-            CuerinasASCoDESC = Properties.Settings.Default.CuerinasASCoDESC;
-            ArticulosASCoDESC = Properties.Settings.Default.PoliesterASCoDESC;
-            PoliesterOrdenarPorCol = Properties.Settings.Default.PoliesterOrderBy;
-            CuerinasOrdenarPorCol = Properties.Settings.Default.CuerinasOrderBy;
-            ArticulosOrdenarPorCol = Properties.Settings.Default.ArticulosOrderBy;
+            SetearColor(Properties.Settings.Default.Color);
+            SetOrdenListView();
             SetDolarDefault();
             ListViewPoliesterRefresh();
 
-            //Recursos WEB
+            /////  Recursos WEB  /////
             Navegador = new WebBrowser { ScriptErrorsSuppressed = true };
             Navegador.Navigate("https://www.dolarhoy.com");
             Navegador.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(ObtenerDatosWebDolar);
@@ -82,8 +77,8 @@ namespace Sistem_de_inventario
             }
             SetDolarWeb(ListaDolar);
         }
-
-        //FUNCIONES DE SETEO
+         ////////////////////////////////
+        /////  FUNCIONES DE SETEO  /////
         void SetearColor(Color aux)
         {
             this.pictureBoxTitulo.BackColor = aux;
@@ -110,6 +105,15 @@ namespace Sistem_de_inventario
             this.lblTotal.BackColor = aux;
             this.lblSimboloPesos.BackColor = aux;
             this.lblSimboloPesos2.BackColor = aux;
+        }
+        void SetOrdenListView()
+        {
+            PoliesterASCoDESC = Properties.Settings.Default.ArticulosASCoDESC;
+            CuerinasASCoDESC = Properties.Settings.Default.CuerinasASCoDESC;
+            ArticulosASCoDESC = Properties.Settings.Default.PoliesterASCoDESC;
+            PoliesterOrdenarPorCol = Properties.Settings.Default.PoliesterOrderBy;
+            CuerinasOrdenarPorCol = Properties.Settings.Default.CuerinasOrderBy;
+            ArticulosOrdenarPorCol = Properties.Settings.Default.ArticulosOrderBy;
         }
         void SetDolarDefault()
         {
@@ -138,8 +142,8 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
-
-        //FUNCIONES DE REFRESCO
+         ///////////////////////////////////
+        /////  FUNCIONES DE REFRESCO  /////
         void FPrincipalTxtClear()
         {
             this.txtAncho.Clear();
@@ -233,7 +237,8 @@ namespace Sistem_de_inventario
                 }
             }
         }
-        //EVENTOS DE SELECCION
+         //////////////////////////////////
+        /////  EVENTOS DE SELECCION  /////
         private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
         {
             FPrincipalTxtClear();
@@ -264,8 +269,8 @@ namespace Sistem_de_inventario
             ListViewItem item = listViewCuerinas.FocusedItem;
             if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
         }
-
-        //EVENTOS DE BOTONES
+         ////////////////////////////////
+        /////  EVENTOS DE BOTONES  /////
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             ModoEditar = false;
@@ -370,8 +375,8 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
-
-        //EVENTOS DE TEXTBOX
+         ////////////////////////////////
+        /////  EVENTOS DE TEXTBOX  /////
         private void TxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumerosYComa(e);
@@ -424,8 +429,8 @@ namespace Sistem_de_inventario
                 { this.txtTotal.Text = this.txtSubTotal.Text; }
             }
         }
-
-        //EVENTOS DE CHECKBOX
+         /////////////////////////////////
+        /////  EVENTOS DE CHECKBOX  /////
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
         {
             if (!_Validaciones.EsDecimal(fPrincipalCheckBox1.Text)) { fPrincipalCheckBox1.Checked = false; }
@@ -483,8 +488,8 @@ namespace Sistem_de_inventario
                 fPrincipalCheckBox3.Text = "...";
             }
         }
-
-        //EVENTOS COLUMNCLICK
+         /////////////////////////////////
+        /////  EVENTOS COLUMNCLICK  /////
         private void listViewPoliester_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             Ordenar(e, "poliester");
@@ -497,20 +502,21 @@ namespace Sistem_de_inventario
         {
             Ordenar(e, "articulo");
         }
-
-        //OTROS EVENTOS
-        //private void FPrincipal_Activated(object sender, EventArgs e)
-        //{
-        //    switch (PestañaActual)
-        //    {
-        //        case 1: ListViewPoliesterRefresh(); break;
-        //        case 2: ListViewCuerinasRefresh(); break;
-        //        case 3: ListViewArticulosRefresh(); break;
-        //    }
-        //}
+         ////////////////////////////
+        /////  OTROS EVENTOS  //////
         private void FPrincipal_Resize(object sender, EventArgs e)
         {
             ActualizarTamañoColumnas();
+        }
+        private void FPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.ArticulosASCoDESC = PoliesterASCoDESC;
+            Properties.Settings.Default.CuerinasASCoDESC = CuerinasASCoDESC;
+            Properties.Settings.Default.PoliesterASCoDESC = ArticulosASCoDESC;
+            Properties.Settings.Default.PoliesterOrderBy = PoliesterOrdenarPorCol;
+            Properties.Settings.Default.CuerinasOrderBy = CuerinasOrdenarPorCol;
+            Properties.Settings.Default.ArticulosOrderBy = ArticulosOrdenarPorCol;
+            Properties.Settings.Default.Save();
         }
     }
 }
