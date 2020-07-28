@@ -26,14 +26,15 @@ namespace Sistem_de_inventario
         private string PoliesterOrdenarPorCol;
         private string CuerinasOrdenarPorCol;
         private string ArticulosOrdenarPorCol;
-        //////////////////////////////////
-        //////  FUNCIONES DE INICIO  /////
         public FPrincipal()
         {
             InitializeComponent();
             Init();                 //INICIALIZACIóN DE INSTANCIAS Y VARIABLES
             FormularioDeCarga();    //ESTA FUNCION SIMULA UNA PANTALLA DE LOADING
         }
+        #region FUNCIONES
+        //////////////////////////////////
+        //////  FUNCIONES DE INICIO  /////
         async void FormularioDeCarga()
         {
             _fCargando.Show();
@@ -113,7 +114,7 @@ namespace Sistem_de_inventario
             CuerinasOrdenarPorCol = Properties.Settings.Default.CuerinasOrderBy;
             ArticulosOrdenarPorCol = Properties.Settings.Default.ArticulosOrderBy;
         }
-        void SetDolarDefault()
+        void SetDolarDefault() //Este seteo se realiza siquiera antes de intentar actualizar de internet
         {
             Dolar = Properties.Settings.Default.Dolar;
             this.txtDolarLocal.Text = Convert.ToString(Properties.Settings.Default.Dolar);
@@ -128,19 +129,26 @@ namespace Sistem_de_inventario
                 this.txtDolarOficial.Text = auxListaDolar[1];
                 this.txtDolarImpuesto.Text = auxListaDolar[8];
                 this.txtDolarBlue.Text = auxListaDolar[3];
-                Navegador.Dispose();
-            }
-            catch { MessageBox.Show("Error al actualizar valores del dólar, compruebe su conexión a internet y reinicie la aplicación", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            finally
-            {
                 Properties.Settings.Default.Dolar = Convert.ToDecimal(this.txtDolarLocal.Text);
                 Properties.Settings.Default.DolarOficial = Convert.ToDecimal(this.txtDolarOficial.Text);
                 Properties.Settings.Default.DolarImpuesto = Convert.ToDecimal(this.txtDolarImpuesto.Text);
                 Properties.Settings.Default.DolarBlue = Convert.ToDecimal(this.txtDolarBlue.Text);
                 Properties.Settings.Default.Save();
+                Navegador.Dispose();
             }
+            catch { MessageBox.Show("Error al actualizar valores del dólar, compruebe su conexión a internet y reinicie la aplicación", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
-        ///////////////////////////////////
+        void SetOnClosing()
+        {
+            Properties.Settings.Default.ArticulosASCoDESC = PoliesterASCoDESC;
+            Properties.Settings.Default.CuerinasASCoDESC = CuerinasASCoDESC;
+            Properties.Settings.Default.PoliesterASCoDESC = ArticulosASCoDESC;
+            Properties.Settings.Default.PoliesterOrderBy = PoliesterOrdenarPorCol;
+            Properties.Settings.Default.CuerinasOrderBy = CuerinasOrdenarPorCol;
+            Properties.Settings.Default.ArticulosOrderBy = ArticulosOrdenarPorCol;
+            Properties.Settings.Default.Save();
+        }
+         ///////////////////////////////////
         /////  FUNCIONES DE REFRESCO  /////
         void FPrincipalTxtClear()
         {
@@ -253,9 +261,7 @@ namespace Sistem_de_inventario
                 }
             }
         }
-        //////////////////////////////////
-        /////  EVENTOS DE SELECCION  /////
-        private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
+        void ActualizarPestañaActual()
         {
             FPrincipalTxtClear();
             if (cPestañas.SelectedTab == pPoliester)
@@ -280,14 +286,9 @@ namespace Sistem_de_inventario
                 this.txtAncho.Enabled = false;
             }
         }
-        private void ListViewCuerinas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ListViewItem item = listViewCuerinas.FocusedItem;
-            if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
-        }
-        ////////////////////////////////
-        /////  EVENTOS DE BOTONES  /////
-        private void BtnNuevo_Click(object sender, EventArgs e)
+         ////////////////////////////////////
+        /////  FUNCIONES DE EJECUCION  /////
+        void EjecutarFormularioNuevo()
         {
             ModoEditar = false;
             switch (PestañaActual)
@@ -296,9 +297,8 @@ namespace Sistem_de_inventario
                 case 2: _Administrador.EjecutarFormCuerinas(); break;
                 case 3: _Administrador.EjecutarFormArticulos(); break;
             }
-
         }
-        private void BtnModificar_Click(object sender, EventArgs e)
+        void EjecutarFormularioEditar()
         {
             ModoEditar = true;
             switch (PestañaActual)
@@ -320,7 +320,7 @@ namespace Sistem_de_inventario
                     }; break;
             }
         }
-        private void BtnEliminar_Click(object sender, EventArgs e)
+        void EjecutarEliminarItem()
         {
             switch (PestañaActual)
             {
@@ -353,7 +353,7 @@ namespace Sistem_de_inventario
                     }; break;
             }
         }
-        private void BtnCalcular_Click(object sender, EventArgs e)
+        void EjecutarCalculo()
         {
             switch (PestañaActual)
             {
@@ -361,7 +361,7 @@ namespace Sistem_de_inventario
                     {
                         ListViewItem item = listViewPoliester.FocusedItem;
                         if (item != null && _Validaciones.EsDecimal(this.txtAncho.Text) && _Validaciones.EsDecimal(this.txtLargo.Text))
-                        { this.txtSubTotal.Text =Convert.ToString(Math.Round(Convert.ToDecimal(item.SubItems[4].Text) * Convert.ToDecimal(this.txtAncho.Text) * Convert.ToDecimal(this.txtLargo.Text), 2)); };
+                        { this.txtSubTotal.Text = Convert.ToString(Math.Round(Convert.ToDecimal(item.SubItems[4].Text) * Convert.ToDecimal(this.txtAncho.Text) * Convert.ToDecimal(this.txtLargo.Text), 2)); };
                         break;
                     }
                 case 2:
@@ -379,7 +379,37 @@ namespace Sistem_de_inventario
                         break;
                     };
             }
-
+        }
+        #endregion
+        #region EVENTOS
+         //////////////////////////////////
+        /////  EVENTOS DE SELECCION  /////
+        private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            ActualizarPestañaActual();
+        }
+        private void ListViewCuerinas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListViewItem item = listViewCuerinas.FocusedItem;
+            if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
+        }
+         ////////////////////////////////
+        /////  EVENTOS DE BOTONES  /////
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            EjecutarFormularioNuevo();
+        }
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            EjecutarFormularioEditar();
+        }
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            EjecutarEliminarItem();
+        }
+        private void BtnCalcular_Click(object sender, EventArgs e)
+        {
+            EjecutarCalculo();
         }
         private void BtnColor_Click(object sender, EventArgs e)
         {
@@ -391,7 +421,7 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
-        ////////////////////////////////
+         ////////////////////////////////
         /////  EVENTOS DE TEXTBOX  /////
         private void TxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -445,7 +475,7 @@ namespace Sistem_de_inventario
                 { this.txtTotal.Text = this.txtSubTotal.Text; }
             }
         }
-        /////////////////////////////////
+         /////////////////////////////////
         /////  EVENTOS DE CHECKBOX  /////
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
         {
@@ -504,7 +534,7 @@ namespace Sistem_de_inventario
                 fPrincipalCheckBox3.Text = "...";
             }
         }
-        /////////////////////////////////
+         /////////////////////////////////
         /////  EVENTOS COLUMNCLICK  /////
         private void listViewPoliester_ColumnClick(object sender, ColumnClickEventArgs e)
         {
@@ -518,7 +548,7 @@ namespace Sistem_de_inventario
         {
             Ordenar(e, "articulo");
         }
-        ////////////////////////////
+         ////////////////////////////
         /////  OTROS EVENTOS  //////
         private void FPrincipal_Activated(object sender, EventArgs e)
         {
@@ -532,13 +562,8 @@ namespace Sistem_de_inventario
         }
         private void FPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.ArticulosASCoDESC = PoliesterASCoDESC;
-            Properties.Settings.Default.CuerinasASCoDESC = CuerinasASCoDESC;
-            Properties.Settings.Default.PoliesterASCoDESC = ArticulosASCoDESC;
-            Properties.Settings.Default.PoliesterOrderBy = PoliesterOrdenarPorCol;
-            Properties.Settings.Default.CuerinasOrderBy = CuerinasOrdenarPorCol;
-            Properties.Settings.Default.ArticulosOrderBy = ArticulosOrdenarPorCol;
-            Properties.Settings.Default.Save();
+            SetOnClosing();
         }
+        #endregion
     }
 }
