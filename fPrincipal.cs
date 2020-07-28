@@ -361,21 +361,21 @@ namespace Sistem_de_inventario
                     {
                         ListViewItem item = listViewPoliester.FocusedItem;
                         if (item != null && _Validaciones.EsDecimal(this.txtAncho.Text) && _Validaciones.EsDecimal(this.txtLargo.Text))
-                        { this.txtSubTotal.Text = Convert.ToString(Convert.ToDecimal(item.SubItems[4].Text) * (Convert.ToDecimal(this.txtAncho.Text) * Convert.ToDecimal(this.txtLargo.Text))); };
+                        { this.txtSubTotal.Text =Convert.ToString(Math.Round(Convert.ToDecimal(item.SubItems[4].Text) * Convert.ToDecimal(this.txtAncho.Text) * Convert.ToDecimal(this.txtLargo.Text), 2)); };
                         break;
                     }
                 case 2:
                     {
                         ListViewItem item = listViewCuerinas.FocusedItem;
                         if (item != null && _Validaciones.EsDecimal(this.txtLargo.Text))
-                        { this.txtSubTotal.Text = Convert.ToString(Convert.ToDecimal(item.SubItems[5].Text) * Convert.ToDecimal(this.txtLargo.Text)); };
+                        { this.txtSubTotal.Text = Convert.ToString(Math.Round(Convert.ToDecimal(item.SubItems[5].Text) * Convert.ToDecimal(this.txtLargo.Text), 2)); };
                         break;
                     }
                 case 3:
                     {
                         ListViewItem item = listViewArticulos.FocusedItem;
                         if (item != null && _Validaciones.EsDecimal(this.txtLargo.Text))
-                        { this.txtSubTotal.Text = Convert.ToString(Convert.ToDecimal(item.SubItems[4].Text) * Convert.ToDecimal(this.txtLargo.Text)); };
+                        { this.txtSubTotal.Text = Convert.ToString(Math.Round(Convert.ToDecimal(item.SubItems[4].Text) * Convert.ToDecimal(this.txtLargo.Text), 2)); };
                         break;
                     };
             }
