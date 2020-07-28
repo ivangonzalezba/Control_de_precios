@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sistem_de_inventario
@@ -21,7 +15,7 @@ namespace Sistem_de_inventario
         }
         void Init()
         { _Validaciones = new Validaciones(); _Administrador = new Administrador(); }
-        private void fEntradaBtnCancelar_Click(object sender, EventArgs e){ this.Close(); }
+        private void fEntradaBtnCancelar_Click(object sender, EventArgs e) { this.Close(); }
         private void fEntradaBtnAceptar_Click(object sender, EventArgs e)
         {
             if (this.ValidateChildren())

@@ -1,6 +1,4 @@
-﻿using MySqlX.XDevAPI.Relational;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -28,7 +26,7 @@ namespace Sistem_de_inventario
         private static string CuerinasOrdenarPorCol;
         private static string ArticulosOrdenarPorCol;
         public static ListViewItem ItemSeleccionado;
-         //////////////////////////////////
+        //////////////////////////////////
         //////  FUNCIONES DE INICIO  /////
         public FPrincipal()
         {
@@ -77,7 +75,7 @@ namespace Sistem_de_inventario
             }
             SetDolarWeb(ListaDolar);
         }
-         ////////////////////////////////
+        ////////////////////////////////
         /////  FUNCIONES DE SETEO  /////
         void SetearColor(Color aux)
         {
@@ -142,7 +140,7 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
-         ///////////////////////////////////
+        ///////////////////////////////////
         /////  FUNCIONES DE REFRESCO  /////
         void FPrincipalTxtClear()
         {
@@ -167,7 +165,7 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(poliester.Nombre);
                 item.SubItems.Add(Convert.ToString(poliester.Precio));
                 item.SubItems.Add(Convert.ToString(poliester.PorcDeGanancia));
-                item.SubItems.Add(Convert.ToString(Math.Round(((poliester.Precio/AnchoPlanchaPoliester + (((poliester.Precio/AnchoPlanchaPoliester) * poliester.PorcDeGanancia) / 100)) * Dolar), 2)));
+                item.SubItems.Add(Convert.ToString(Math.Round(((poliester.Precio / AnchoPlanchaPoliester + (((poliester.Precio / AnchoPlanchaPoliester) * poliester.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
         }
         void ListViewCuerinasRefresh()
@@ -200,44 +198,62 @@ namespace Sistem_de_inventario
         void Ordenar(ColumnClickEventArgs e, string auxTipo)
         {
             if (auxTipo.Equals("poliester"))
-            { 
+            {
                 switch (e.Column)
                 {
-                    case 0: { PoliesterOrdenarPorCol = "poliesterID";
+                    case 0:
+                        {
+                            PoliesterOrdenarPorCol = "poliesterID";
                             if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
-                            else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break; }
-                    case 1: {PoliesterOrdenarPorCol = "Nombre";
+                            else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break;
+                        }
+                    case 1:
+                        {
+                            PoliesterOrdenarPorCol = "Nombre";
                             if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
-                            else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break; }
+                            else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break;
+                        }
                 }
             }
             if (auxTipo.Equals("cuerina"))
-            { 
+            {
                 switch (e.Column)
                 {
-                    case 0: { CuerinasOrdenarPorCol = "cuerinasID";
+                    case 0:
+                        {
+                            CuerinasOrdenarPorCol = "cuerinasID";
                             if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
-                            else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break; }
-                    case 1: {CuerinasOrdenarPorCol = "Nombre";
+                            else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break;
+                        }
+                    case 1:
+                        {
+                            CuerinasOrdenarPorCol = "Nombre";
                             if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
-                            else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break; }
+                            else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break;
+                        }
                 }
             }
             if (auxTipo.Equals("articulo"))
             {
                 switch (e.Column)
                 {
-                    case 0: { ArticulosOrdenarPorCol = "articulosID";
+                    case 0:
+                        {
+                            ArticulosOrdenarPorCol = "articulosID";
                             if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
-                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
-                    case 1: {ArticulosOrdenarPorCol = "Descripcion";
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break;
+                        }
+                    case 1:
+                        {
+                            ArticulosOrdenarPorCol = "Descripcion";
                             if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
-                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; }
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break;
+                        }
                     case 3: _Administrador.EjecutarFormEntradaSimple(); break;
                 }
             }
         }
-         //////////////////////////////////
+        //////////////////////////////////
         /////  EVENTOS DE SELECCION  /////
         private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -269,7 +285,7 @@ namespace Sistem_de_inventario
             ListViewItem item = listViewCuerinas.FocusedItem;
             if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
         }
-         ////////////////////////////////
+        ////////////////////////////////
         /////  EVENTOS DE BOTONES  /////
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -375,7 +391,7 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
-         ////////////////////////////////
+        ////////////////////////////////
         /////  EVENTOS DE TEXTBOX  /////
         private void TxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -429,7 +445,7 @@ namespace Sistem_de_inventario
                 { this.txtTotal.Text = this.txtSubTotal.Text; }
             }
         }
-         /////////////////////////////////
+        /////////////////////////////////
         /////  EVENTOS DE CHECKBOX  /////
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
         {
@@ -488,7 +504,7 @@ namespace Sistem_de_inventario
                 fPrincipalCheckBox3.Text = "...";
             }
         }
-         /////////////////////////////////
+        /////////////////////////////////
         /////  EVENTOS COLUMNCLICK  /////
         private void listViewPoliester_ColumnClick(object sender, ColumnClickEventArgs e)
         {
@@ -502,7 +518,7 @@ namespace Sistem_de_inventario
         {
             Ordenar(e, "articulo");
         }
-         ////////////////////////////
+        ////////////////////////////
         /////  OTROS EVENTOS  //////
         private void FPrincipal_Activated(object sender, EventArgs e)
         {
