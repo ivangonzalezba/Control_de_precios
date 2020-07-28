@@ -14,18 +14,18 @@ namespace Sistem_de_inventario
         private Administrador _Administrador;
         private Validaciones _Validaciones;
         private WebBrowser Navegador;
+        public static ListViewItem ItemSeleccionado;
         public static int PestañaActual;
         public static decimal Dolar;
         public static bool ModoEditar;
-        public static decimal Total;
-        private static decimal AnchoPlanchaPoliester;
-        private static string PoliesterASCoDESC;
-        private static string CuerinasASCoDESC;
-        private static string ArticulosASCoDESC;
-        private static string PoliesterOrdenarPorCol;
-        private static string CuerinasOrdenarPorCol;
-        private static string ArticulosOrdenarPorCol;
-        public static ListViewItem ItemSeleccionado;
+        private decimal Total;
+        private decimal AnchoPlanchaPoliester;
+        private string PoliesterASCoDESC;
+        private string CuerinasASCoDESC;
+        private string ArticulosASCoDESC;
+        private string PoliesterOrdenarPorCol;
+        private string CuerinasOrdenarPorCol;
+        private string ArticulosOrdenarPorCol;
         //////////////////////////////////
         //////  FUNCIONES DE INICIO  /////
         public FPrincipal()
