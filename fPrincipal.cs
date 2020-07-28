@@ -504,6 +504,12 @@ namespace Sistem_de_inventario
         }
          ////////////////////////////
         /////  OTROS EVENTOS  //////
+        private void FPrincipal_Activated(object sender, EventArgs e)
+        {
+            ListViewPoliesterRefresh();
+            ListViewCuerinasRefresh();
+            ListViewArticulosRefresh();
+        }
         private void FPrincipal_Resize(object sender, EventArgs e)
         {
             ActualizarTamañoColumnas();
