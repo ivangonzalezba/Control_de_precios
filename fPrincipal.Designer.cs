@@ -135,7 +135,6 @@
             this.listViewPoliester.UseCompatibleStateImageBehavior = false;
             this.listViewPoliester.View = System.Windows.Forms.View.Details;
             this.listViewPoliester.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewPoliester_ColumnClick);
-            this.listViewPoliester.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewPoliester_KeyPress);
             // 
             // colPoliesterID
             // 
@@ -195,7 +194,6 @@
             this.listViewCuerinas.View = System.Windows.Forms.View.Details;
             this.listViewCuerinas.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewCuerinas_ColumnClick);
             this.listViewCuerinas.SelectedIndexChanged += new System.EventHandler(this.ListViewCuerinas_SelectedIndexChanged);
-            this.listViewCuerinas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewCuerinas_KeyPress);
             // 
             // colID
             // 
@@ -257,7 +255,6 @@
             this.listViewArticulos.UseCompatibleStateImageBehavior = false;
             this.listViewArticulos.View = System.Windows.Forms.View.Details;
             this.listViewArticulos.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewArticulos_ColumnClick);
-            this.listViewArticulos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewArticulos_KeyPress);
             // 
             // colArticulosID
             // 

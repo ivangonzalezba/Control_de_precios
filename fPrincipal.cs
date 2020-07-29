@@ -467,6 +467,9 @@ namespace Sistem_de_inventario
             }
         }
          /////////////////////////////////
+        /////  EVENTOS DE KEYPRESS  /////
+        
+         /////////////////////////////////
         /////  EVENTOS DE CHECKBOX  /////
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
         {
@@ -556,20 +559,5 @@ namespace Sistem_de_inventario
             SetOnClosing();
         }
         #endregion
-
-        private void listViewPoliester_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (_Validaciones.EnterEsPresionado(e)) { this.txtAncho.Focus(); }
-        }
-
-        private void listViewCuerinas_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
-        }
-
-        private void listViewArticulos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
-        }
     }
 }
