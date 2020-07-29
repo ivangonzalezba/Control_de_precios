@@ -303,21 +303,12 @@ namespace Sistem_de_inventario
             ModoEditar = true;
             switch (PestañaActual)
             {
-                case 1:
-                    {
-                        if (listViewPoliester.FocusedItem != null)
-                        { ItemSeleccionado = listViewPoliester.FocusedItem; _Administrador.EjecutarFormPoliester(); }
-                    }; break;
-                case 2:
-                    {
-                        if (listViewCuerinas.FocusedItem != null)
-                        { ItemSeleccionado = listViewCuerinas.FocusedItem; _Administrador.EjecutarFormCuerinas(); }
-                    }; break;
-                case 3:
-                    {
-                        if (listViewArticulos.FocusedItem != null)
-                        { ItemSeleccionado = listViewArticulos.FocusedItem; _Administrador.EjecutarFormArticulos(); }
-                    }; break;
+                case 1: { if (listViewPoliester.FocusedItem != null)
+                        { ItemSeleccionado = listViewPoliester.FocusedItem; _Administrador.EjecutarFormPoliester(); } }; break;
+                case 2: { if (listViewCuerinas.FocusedItem != null)
+                        { ItemSeleccionado = listViewCuerinas.FocusedItem; _Administrador.EjecutarFormCuerinas(); } }; break;
+                case 3: { if (listViewArticulos.FocusedItem != null)
+                        { ItemSeleccionado = listViewArticulos.FocusedItem; _Administrador.EjecutarFormArticulos(); } }; break;
             }
         }
         void EjecutarEliminarItem()
@@ -328,27 +319,27 @@ namespace Sistem_de_inventario
                     {
                         if (listViewPoliester.FocusedItem != null)
                         {
-                            ListViewItem Item = listViewPoliester.FocusedItem;
+                            ListViewItem item = listViewPoliester.FocusedItem;
                             if (_Validaciones.EliminarResult())
-                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewPoliesterRefresh(); }
+                            { _Administrador.EliminarItem(Convert.ToInt32(item.Text)); ListViewPoliesterRefresh(); }
                         }
                     }; break;
                 case 2:
                     {
                         if (listViewCuerinas.FocusedItem != null)
                         {
-                            ListViewItem Item = listViewCuerinas.FocusedItem;
+                            ListViewItem item = listViewCuerinas.FocusedItem;
                             if (_Validaciones.EliminarResult())
-                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewCuerinasRefresh(); }
+                            { _Administrador.EliminarItem(Convert.ToInt32(item.Text)); ListViewCuerinasRefresh(); }
                         }
                     }; break;
                 case 3:
                     {
                         if (listViewArticulos.FocusedItem != null)
                         {
-                            ListViewItem Item = listViewArticulos.FocusedItem;
+                            ListViewItem item = listViewArticulos.FocusedItem;
                             if (_Validaciones.EliminarResult())
-                            { _Administrador.EliminarItem(Convert.ToInt32(Item.Text)); ListViewArticulosRefresh(); }
+                            { _Administrador.EliminarItem(Convert.ToInt32(item.Text)); ListViewArticulosRefresh(); }
                         }
                     }; break;
             }
@@ -565,5 +556,20 @@ namespace Sistem_de_inventario
             SetOnClosing();
         }
         #endregion
+
+        private void listViewPoliester_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (_Validaciones.EnterEsPresionado(e)) { this.txtAncho.Focus(); }
+        }
+
+        private void listViewCuerinas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
+        }
+
+        private void listViewArticulos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
+        }
     }
 }

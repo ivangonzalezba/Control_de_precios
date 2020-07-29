@@ -102,7 +102,7 @@
             this.cPestañas.Name = "cPestañas";
             this.cPestañas.SelectedIndex = 0;
             this.cPestañas.Size = new System.Drawing.Size(805, 428);
-            this.cPestañas.TabIndex = 0;
+            this.cPestañas.TabIndex = 2;
             this.cPestañas.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.CPestañas_Selecting);
             // 
             // pPoliester
@@ -131,10 +131,11 @@
             this.listViewPoliester.Location = new System.Drawing.Point(3, 3);
             this.listViewPoliester.Name = "listViewPoliester";
             this.listViewPoliester.Size = new System.Drawing.Size(791, 389);
-            this.listViewPoliester.TabIndex = 0;
+            this.listViewPoliester.TabIndex = 1;
             this.listViewPoliester.UseCompatibleStateImageBehavior = false;
             this.listViewPoliester.View = System.Windows.Forms.View.Details;
             this.listViewPoliester.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewPoliester_ColumnClick);
+            this.listViewPoliester.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewPoliester_KeyPress);
             // 
             // colPoliesterID
             // 
@@ -189,11 +190,12 @@
             this.listViewCuerinas.MultiSelect = false;
             this.listViewCuerinas.Name = "listViewCuerinas";
             this.listViewCuerinas.Size = new System.Drawing.Size(791, 389);
-            this.listViewCuerinas.TabIndex = 0;
+            this.listViewCuerinas.TabIndex = 1;
             this.listViewCuerinas.UseCompatibleStateImageBehavior = false;
             this.listViewCuerinas.View = System.Windows.Forms.View.Details;
             this.listViewCuerinas.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewCuerinas_ColumnClick);
             this.listViewCuerinas.SelectedIndexChanged += new System.EventHandler(this.ListViewCuerinas_SelectedIndexChanged);
+            this.listViewCuerinas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewCuerinas_KeyPress);
             // 
             // colID
             // 
@@ -251,10 +253,11 @@
             this.listViewArticulos.Location = new System.Drawing.Point(3, 3);
             this.listViewArticulos.Name = "listViewArticulos";
             this.listViewArticulos.Size = new System.Drawing.Size(791, 419);
-            this.listViewArticulos.TabIndex = 0;
+            this.listViewArticulos.TabIndex = 1;
             this.listViewArticulos.UseCompatibleStateImageBehavior = false;
             this.listViewArticulos.View = System.Windows.Forms.View.Details;
             this.listViewArticulos.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewArticulos_ColumnClick);
+            this.listViewArticulos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewArticulos_KeyPress);
             // 
             // colArticulosID
             // 
@@ -291,7 +294,7 @@
             this.txtDolarBlue.Name = "txtDolarBlue";
             this.txtDolarBlue.ReadOnly = true;
             this.txtDolarBlue.Size = new System.Drawing.Size(63, 26);
-            this.txtDolarBlue.TabIndex = 1;
+            this.txtDolarBlue.TabIndex = 0;
             this.txtDolarBlue.TabStop = false;
             this.txtDolarBlue.Text = "103";
             this.txtDolarBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -344,7 +347,7 @@
             this.txtDolarOficial.Name = "txtDolarOficial";
             this.txtDolarOficial.ReadOnly = true;
             this.txtDolarOficial.Size = new System.Drawing.Size(63, 26);
-            this.txtDolarOficial.TabIndex = 5;
+            this.txtDolarOficial.TabIndex = 0;
             this.txtDolarOficial.TabStop = false;
             this.txtDolarOficial.Text = "68";
             this.txtDolarOficial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -372,7 +375,7 @@
             this.txtDolarImpuesto.Name = "txtDolarImpuesto";
             this.txtDolarImpuesto.ReadOnly = true;
             this.txtDolarImpuesto.Size = new System.Drawing.Size(63, 26);
-            this.txtDolarImpuesto.TabIndex = 13;
+            this.txtDolarImpuesto.TabIndex = 0;
             this.txtDolarImpuesto.TabStop = false;
             this.txtDolarImpuesto.Text = "88";
             this.txtDolarImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -397,7 +400,7 @@
             this.txtDolarLocal.Location = new System.Drawing.Point(887, 6);
             this.txtDolarLocal.Name = "txtDolarLocal";
             this.txtDolarLocal.Size = new System.Drawing.Size(63, 26);
-            this.txtDolarLocal.TabIndex = 1;
+            this.txtDolarLocal.TabIndex = 12;
             this.txtDolarLocal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDolarLocal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDolarLocal_KeyPress);
             this.txtDolarLocal.Validating += new System.ComponentModel.CancelEventHandler(this.TxtDolarLocal_Validating);
@@ -595,7 +598,7 @@
             this.btnColor.Location = new System.Drawing.Point(969, 6);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(33, 26);
-            this.btnColor.TabIndex = 2;
+            this.btnColor.TabIndex = 13;
             this.btnColor.UseVisualStyleBackColor = false;
             this.btnColor.Click += new System.EventHandler(this.BtnColor_Click);
             // 
