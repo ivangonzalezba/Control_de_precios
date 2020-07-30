@@ -114,7 +114,7 @@ namespace Sistem_de_inventario
             CuerinasOrdenarPorCol = Properties.Settings.Default.CuerinasOrderBy;
             ArticulosOrdenarPorCol = Properties.Settings.Default.ArticulosOrderBy;
         }
-        void SetDolarDefault() //Este seteo se realiza siquiera antes de intentar actualizar de internet
+        void SetDolarDefault() //Este seteo se realiza antes de intentar actualizar de internet
         {
             Dolar = Properties.Settings.Default.Dolar;
             this.txtDolarLocal.Text = Convert.ToString(Properties.Settings.Default.Dolar);
@@ -210,14 +210,12 @@ namespace Sistem_de_inventario
                 switch (e.Column)
                 {
                     case 0:
-                        {
-                            PoliesterOrdenarPorCol = "poliesterID";
+                        {   PoliesterOrdenarPorCol = "poliesterID";
                             if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
                             else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break;
                         }
                     case 1:
-                        {
-                            PoliesterOrdenarPorCol = "Nombre";
+                        {   PoliesterOrdenarPorCol = "Nombre";
                             if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
                             else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break;
                         }
@@ -228,14 +226,12 @@ namespace Sistem_de_inventario
                 switch (e.Column)
                 {
                     case 0:
-                        {
-                            CuerinasOrdenarPorCol = "cuerinasID";
+                        {   CuerinasOrdenarPorCol = "cuerinasID";
                             if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
                             else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break;
                         }
                     case 1:
-                        {
-                            CuerinasOrdenarPorCol = "Nombre";
+                        {   CuerinasOrdenarPorCol = "Nombre";
                             if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
                             else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break;
                         }
@@ -246,16 +242,14 @@ namespace Sistem_de_inventario
                 switch (e.Column)
                 {
                     case 0:
-                        {
-                            ArticulosOrdenarPorCol = "articulosID";
+                        {   ArticulosOrdenarPorCol = "articulosID";
                             if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
                             else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break;
                         }
                     case 1:
-                        {
-                            ArticulosOrdenarPorCol = "Descripcion";
+                        {   ArticulosOrdenarPorCol = "Descripcion";
                             if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
-                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break;
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; 
                         }
                     case 3: _Administrador.EjecutarFormEntradaSimple(); break;
                 }
@@ -468,7 +462,20 @@ namespace Sistem_de_inventario
         }
          /////////////////////////////////
         /////  EVENTOS DE KEYPRESS  /////
-        
+        private void listViewPoliester_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (_Validaciones.EnterEsPresionado(e)) { this.txtAncho.Focus(); }
+        }
+
+        private void listViewCuerinas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
+        }
+
+        private void listViewArticulos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
+        }
          /////////////////////////////////
         /////  EVENTOS DE CHECKBOX  /////
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
