@@ -145,11 +145,12 @@
             // colPoliesterNombre
             // 
             this.colPoliesterNombre.Text = "Descripción";
-            this.colPoliesterNombre.Width = 510;
+            this.colPoliesterNombre.Width = 460;
             // 
             // colPoliesterPrecioDolar
             // 
-            this.colPoliesterPrecioDolar.Text = "Dolar";
+            this.colPoliesterPrecioDolar.Text = "Plancha U$S";
+            this.colPoliesterPrecioDolar.Width = 110;
             // 
             // colPoliesterPorcentaje
             // 
@@ -159,7 +160,7 @@
             // 
             // colPoliesterPrecioM2
             // 
-            this.colPoliesterPrecioM2.Text = "M2 en pesos";
+            this.colPoliesterPrecioM2.Text = "M2 $";
             this.colPoliesterPrecioM2.Width = 120;
             // 
             // pCuerinas
@@ -205,7 +206,7 @@
             // colNombre
             // 
             this.colNombre.Text = "Descripción";
-            this.colNombre.Width = 450;
+            this.colNombre.Width = 420;
             // 
             // colAncho
             // 
@@ -213,7 +214,8 @@
             // 
             // colPrecioDolar
             // 
-            this.colPrecioDolar.Text = "Dolar";
+            this.colPrecioDolar.Text = "MLin U$S";
+            this.colPrecioDolar.Width = 90;
             // 
             // colPorcentaje
             // 
@@ -223,7 +225,7 @@
             // 
             // colPrecioMLineal
             // 
-            this.colPrecioMLineal.Text = "MLin. en pesos";
+            this.colPrecioMLineal.Text = "MLin $";
             this.colPrecioMLineal.Width = 120;
             // 
             // pArticulos
@@ -271,7 +273,8 @@
             // 
             // colArticulosPrecio
             // 
-            this.colArticulosPrecio.Text = "Pesos";
+            this.colArticulosPrecio.Text = "$";
+            this.colArticulosPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colArticulosPrecio.Width = 100;
             // 
             // colArticulosPorcentaje
@@ -282,7 +285,8 @@
             // 
             // colArticulosPrecioFinal
             // 
-            this.colArticulosPrecioFinal.Text = "Final en pesos";
+            this.colArticulosPrecioFinal.Text = "$";
+            this.colArticulosPrecioFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colArticulosPrecioFinal.Width = 120;
             // 
             // txtDolarBlue
@@ -593,11 +597,13 @@
             // btnColor
             // 
             this.btnColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnColor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnColor.BackgroundImage")));
-            this.btnColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnColor.Location = new System.Drawing.Point(969, 6);
+            this.btnColor.BackgroundImage = global::Sistem_de_inventario.Properties.Resources.Selector_de_color_16px;
+            this.btnColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnColor.FlatAppearance.BorderSize = 0;
+            this.btnColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColor.Location = new System.Drawing.Point(978, 7);
             this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(33, 26);
+            this.btnColor.Size = new System.Drawing.Size(24, 24);
             this.btnColor.TabIndex = 13;
             this.btnColor.UseVisualStyleBackColor = false;
             this.btnColor.Click += new System.EventHandler(this.BtnColor_Click);

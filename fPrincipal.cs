@@ -148,7 +148,7 @@ namespace Sistem_de_inventario
             Properties.Settings.Default.ArticulosOrderBy = ArticulosOrdenarPorCol;
             Properties.Settings.Default.Save();
         }
-         ///////////////////////////////////
+        ///////////////////////////////////
         /////  FUNCIONES DE REFRESCO  /////
         void FPrincipalTxtClear()
         {
@@ -158,8 +158,8 @@ namespace Sistem_de_inventario
         }
         void ActualizarTamañoColumnas()
         {
-            this.listViewPoliester.Columns[1].Width = this.Width - 514;
-            this.listViewCuerinas.Columns[1].Width = this.Width - 574;
+            this.listViewPoliester.Columns[1].Width = this.Width - 564;
+            this.listViewCuerinas.Columns[1].Width = this.Width - 604;
             this.listViewArticulos.Columns[1].Width = this.Width - 554;
         }
         void ListViewPoliesterRefresh()
@@ -210,12 +210,14 @@ namespace Sistem_de_inventario
                 switch (e.Column)
                 {
                     case 0:
-                        {   PoliesterOrdenarPorCol = "poliesterID";
+                        {
+                            PoliesterOrdenarPorCol = "poliesterID";
                             if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
                             else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break;
                         }
                     case 1:
-                        {   PoliesterOrdenarPorCol = "Nombre";
+                        {
+                            PoliesterOrdenarPorCol = "Nombre";
                             if (PoliesterASCoDESC.Equals("ASC")) { PoliesterASCoDESC = "DESC"; ListViewPoliesterRefresh(); }
                             else { PoliesterASCoDESC = "ASC"; ListViewPoliesterRefresh(); }; break;
                         }
@@ -226,12 +228,14 @@ namespace Sistem_de_inventario
                 switch (e.Column)
                 {
                     case 0:
-                        {   CuerinasOrdenarPorCol = "cuerinasID";
+                        {
+                            CuerinasOrdenarPorCol = "cuerinasID";
                             if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
                             else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break;
                         }
                     case 1:
-                        {   CuerinasOrdenarPorCol = "Nombre";
+                        {
+                            CuerinasOrdenarPorCol = "Nombre";
                             if (CuerinasASCoDESC.Equals("ASC")) { CuerinasASCoDESC = "DESC"; ListViewCuerinasRefresh(); }
                             else { CuerinasASCoDESC = "ASC"; ListViewCuerinasRefresh(); }; break;
                         }
@@ -242,14 +246,16 @@ namespace Sistem_de_inventario
                 switch (e.Column)
                 {
                     case 0:
-                        {   ArticulosOrdenarPorCol = "articulosID";
+                        {
+                            ArticulosOrdenarPorCol = "articulosID";
                             if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
                             else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break;
                         }
                     case 1:
-                        {   ArticulosOrdenarPorCol = "Descripcion";
+                        {
+                            ArticulosOrdenarPorCol = "Descripcion";
                             if (ArticulosASCoDESC.Equals("ASC")) { ArticulosASCoDESC = "DESC"; ListViewArticulosRefresh(); }
-                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break; 
+                            else { ArticulosASCoDESC = "ASC"; ListViewArticulosRefresh(); }; break;
                         }
                     case 3: _Administrador.EjecutarFormEntradaSimple(); break;
                 }
@@ -280,7 +286,7 @@ namespace Sistem_de_inventario
                 this.txtAncho.Enabled = false;
             }
         }
-         ////////////////////////////////////
+        ////////////////////////////////////
         /////  FUNCIONES DE EJECUCION  /////
         void EjecutarFormularioNuevo()
         {
@@ -297,12 +303,21 @@ namespace Sistem_de_inventario
             ModoEditar = true;
             switch (PestañaActual)
             {
-                case 1: { if (listViewPoliester.FocusedItem != null)
-                        { ItemSeleccionado = listViewPoliester.FocusedItem; _Administrador.EjecutarFormPoliester(); } }; break;
-                case 2: { if (listViewCuerinas.FocusedItem != null)
-                        { ItemSeleccionado = listViewCuerinas.FocusedItem; _Administrador.EjecutarFormCuerinas(); } }; break;
-                case 3: { if (listViewArticulos.FocusedItem != null)
-                        { ItemSeleccionado = listViewArticulos.FocusedItem; _Administrador.EjecutarFormArticulos(); } }; break;
+                case 1:
+                    {
+                        if (listViewPoliester.FocusedItem != null)
+                        { ItemSeleccionado = listViewPoliester.FocusedItem; _Administrador.EjecutarFormPoliester(); }
+                    }; break;
+                case 2:
+                    {
+                        if (listViewCuerinas.FocusedItem != null)
+                        { ItemSeleccionado = listViewCuerinas.FocusedItem; _Administrador.EjecutarFormCuerinas(); }
+                    }; break;
+                case 3:
+                    {
+                        if (listViewArticulos.FocusedItem != null)
+                        { ItemSeleccionado = listViewArticulos.FocusedItem; _Administrador.EjecutarFormArticulos(); }
+                    }; break;
             }
         }
         void EjecutarEliminarItem()
@@ -367,7 +382,7 @@ namespace Sistem_de_inventario
         }
         #endregion
         #region EVENTOS
-         //////////////////////////////////
+        //////////////////////////////////
         /////  EVENTOS DE SELECCION  /////
         private void CPestañas_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -378,7 +393,7 @@ namespace Sistem_de_inventario
             ListViewItem item = listViewCuerinas.FocusedItem;
             if (item != null) { this.txtAncho.Text = item.SubItems[2].Text; }
         }
-         ////////////////////////////////
+        ////////////////////////////////
         /////  EVENTOS DE BOTONES  /////
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -406,7 +421,7 @@ namespace Sistem_de_inventario
                 Properties.Settings.Default.Save();
             }
         }
-         ////////////////////////////////
+        ////////////////////////////////
         /////  EVENTOS DE TEXTBOX  /////
         private void TxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -460,7 +475,7 @@ namespace Sistem_de_inventario
                 { this.txtTotal.Text = this.txtSubTotal.Text; }
             }
         }
-         /////////////////////////////////
+        /////////////////////////////////
         /////  EVENTOS DE KEYPRESS  /////
         private void listViewPoliester_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -476,7 +491,7 @@ namespace Sistem_de_inventario
         {
             if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
         }
-         /////////////////////////////////
+        /////////////////////////////////
         /////  EVENTOS DE CHECKBOX  /////
         private void FPrincipalCheckBox1_Validated(object sender, EventArgs e)
         {
@@ -535,7 +550,7 @@ namespace Sistem_de_inventario
                 fPrincipalCheckBox3.Text = "...";
             }
         }
-         /////////////////////////////////
+        /////////////////////////////////
         /////  EVENTOS COLUMNCLICK  /////
         private void listViewPoliester_ColumnClick(object sender, ColumnClickEventArgs e)
         {
@@ -549,7 +564,7 @@ namespace Sistem_de_inventario
         {
             Ordenar(e, "articulo");
         }
-         ////////////////////////////
+        ////////////////////////////
         /////  OTROS EVENTOS  //////
         private void FPrincipal_Activated(object sender, EventArgs e)
         {
