@@ -53,6 +53,7 @@
             // fPolTxtPorcentaje
             // 
             this.fPolTxtPorcentaje.Location = new System.Drawing.Point(156, 132);
+            this.fPolTxtPorcentaje.MaxLength = 3;
             this.fPolTxtPorcentaje.Name = "fPolTxtPorcentaje";
             this.fPolTxtPorcentaje.Size = new System.Drawing.Size(342, 20);
             this.fPolTxtPorcentaje.TabIndex = 45;

@@ -26,8 +26,8 @@ namespace Sistem_de_inventario
                 this.fCuerTxtPorcentaje.Text = FPrincipal.ItemSeleccionado.SubItems[4].Text;
             }
         }
-        private void fCuerBtnCancelar_Click(object sender, EventArgs e) { this.Close(); }
-        private void fCuerBtnAceptar_Click(object sender, EventArgs e)
+        private void FCuerBtnCancelar_Click(object sender, EventArgs e) { this.Close(); }
+        private void FCuerBtnAceptar_Click(object sender, EventArgs e)
         {
             if (!FPrincipal.ModoEditar && this.ValidateChildren())
             {
@@ -55,33 +55,33 @@ namespace Sistem_de_inventario
                 this.Close();
             }
         }
-        private void fCuerTxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void FCuerTxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
-        private void fCuerTxtAncho_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            _Validaciones.SoloNumerosYComa(e);
-            if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
-        }
-        private void fCuerTxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        private void FCuerTxtAncho_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumerosYComa(e);
             if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
-        private void fCuerTxtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
+        private void FCuerTxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _Validaciones.SoloNumerosYComa(e);
+            if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
+        }
+        private void FCuerTxtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumeros(e);
             if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
-        private void fCuerTxtAncho_Validating(object sender, CancelEventArgs e)
+        private void FCuerTxtAncho_Validating(object sender, CancelEventArgs e)
         {
             if (!fCuerBtnCancelar.Focused)
             {
                 if (!_Validaciones.EsDecimal(this.fCuerTxtAncho.Text)) { e.Cancel = true; }
             }
         }
-        private void fCuerTxtPrecio_Validating(object sender, CancelEventArgs e)
+        private void FCuerTxtPrecio_Validating(object sender, CancelEventArgs e)
         {
             if (!fCuerBtnCancelar.Focused)
             {
@@ -89,14 +89,14 @@ namespace Sistem_de_inventario
                 else { this.fCuerLblPrecio.Text = "$" + ((Convert.ToDecimal(this.fCuerTxtPrecio.Text)) * FPrincipal.Dolar).ToString(); }
             }
         }
-        private void fCuerTxtPorcentaje_Validating(object sender, CancelEventArgs e)
+        private void FCuerTxtPorcentaje_Validating(object sender, CancelEventArgs e)
         {
             if (!fCuerBtnCancelar.Focused)
             {
                 if (!_Validaciones.EsEntero(this.fCuerTxtPorcentaje.Text)) { e.Cancel = true; }
             }
         }
-        private void fCuerTxtNombre_Validating(object sender, CancelEventArgs e)
+        private void FCuerTxtNombre_Validating(object sender, CancelEventArgs e)
         {
             if (!fCuerBtnCancelar.Focused)
             {

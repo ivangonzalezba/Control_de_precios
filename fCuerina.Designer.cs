@@ -54,7 +54,7 @@
             this.fCuerBtnAceptar.TabIndex = 34;
             this.fCuerBtnAceptar.Text = "Aceptar";
             this.fCuerBtnAceptar.UseVisualStyleBackColor = false;
-            this.fCuerBtnAceptar.Click += new System.EventHandler(this.fCuerBtnAceptar_Click);
+            this.fCuerBtnAceptar.Click += new System.EventHandler(this.FCuerBtnAceptar_Click);
             // 
             // fCuerBtnCancelar
             // 
@@ -69,7 +69,7 @@
             this.fCuerBtnCancelar.TabIndex = 35;
             this.fCuerBtnCancelar.Text = "Cancelar";
             this.fCuerBtnCancelar.UseVisualStyleBackColor = false;
-            this.fCuerBtnCancelar.Click += new System.EventHandler(this.fCuerBtnCancelar_Click);
+            this.fCuerBtnCancelar.Click += new System.EventHandler(this.FCuerBtnCancelar_Click);
             // 
             // fCuerLbl1
             // 
@@ -127,17 +127,18 @@
             this.fCuerTxtNombre.Name = "fCuerTxtNombre";
             this.fCuerTxtNombre.Size = new System.Drawing.Size(342, 20);
             this.fCuerTxtNombre.TabIndex = 30;
-            this.fCuerTxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fCuerTxtNombre_KeyPress);
-            this.fCuerTxtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.fCuerTxtNombre_Validating);
+            this.fCuerTxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FCuerTxtNombre_KeyPress);
+            this.fCuerTxtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.FCuerTxtNombre_Validating);
             // 
             // fCuerTxtAncho
             // 
             this.fCuerTxtAncho.Location = new System.Drawing.Point(156, 92);
+            this.fCuerTxtAncho.MaxLength = 4;
             this.fCuerTxtAncho.Name = "fCuerTxtAncho";
             this.fCuerTxtAncho.Size = new System.Drawing.Size(342, 20);
             this.fCuerTxtAncho.TabIndex = 31;
-            this.fCuerTxtAncho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fCuerTxtAncho_KeyPress);
-            this.fCuerTxtAncho.Validating += new System.ComponentModel.CancelEventHandler(this.fCuerTxtAncho_Validating);
+            this.fCuerTxtAncho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FCuerTxtAncho_KeyPress);
+            this.fCuerTxtAncho.Validating += new System.ComponentModel.CancelEventHandler(this.FCuerTxtAncho_Validating);
             // 
             // fCuerTxtPrecio
             // 
@@ -145,17 +146,18 @@
             this.fCuerTxtPrecio.Name = "fCuerTxtPrecio";
             this.fCuerTxtPrecio.Size = new System.Drawing.Size(342, 20);
             this.fCuerTxtPrecio.TabIndex = 32;
-            this.fCuerTxtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fCuerTxtPrecio_KeyPress);
-            this.fCuerTxtPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.fCuerTxtPrecio_Validating);
+            this.fCuerTxtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FCuerTxtPrecio_KeyPress);
+            this.fCuerTxtPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.FCuerTxtPrecio_Validating);
             // 
             // fCuerTxtPorcentaje
             // 
             this.fCuerTxtPorcentaje.Location = new System.Drawing.Point(156, 172);
+            this.fCuerTxtPorcentaje.MaxLength = 3;
             this.fCuerTxtPorcentaje.Name = "fCuerTxtPorcentaje";
             this.fCuerTxtPorcentaje.Size = new System.Drawing.Size(342, 20);
             this.fCuerTxtPorcentaje.TabIndex = 33;
-            this.fCuerTxtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fCuerTxtPorcentaje_KeyPress);
-            this.fCuerTxtPorcentaje.Validating += new System.ComponentModel.CancelEventHandler(this.fCuerTxtPorcentaje_Validating);
+            this.fCuerTxtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FCuerTxtPorcentaje_KeyPress);
+            this.fCuerTxtPorcentaje.Validating += new System.ComponentModel.CancelEventHandler(this.FCuerTxtPorcentaje_Validating);
             // 
             // fCuerLblTitulo
             // 

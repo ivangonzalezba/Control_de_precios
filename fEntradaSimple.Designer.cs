@@ -1,6 +1,6 @@
 ﻿namespace Sistem_de_inventario
 {
-    partial class fEntradaSimple
+    partial class FEntradaSimple
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.fEntradaBtnAceptar.TabIndex = 36;
             this.fEntradaBtnAceptar.Text = "Aceptar";
             this.fEntradaBtnAceptar.UseVisualStyleBackColor = false;
-            this.fEntradaBtnAceptar.Click += new System.EventHandler(this.fEntradaBtnAceptar_Click);
+            this.fEntradaBtnAceptar.Click += new System.EventHandler(this.FEntradaBtnAceptar_Click);
             // 
             // fEntradaBtnCancelar
             // 
@@ -62,16 +62,17 @@
             this.fEntradaBtnCancelar.TabIndex = 37;
             this.fEntradaBtnCancelar.Text = "Cancelar";
             this.fEntradaBtnCancelar.UseVisualStyleBackColor = false;
-            this.fEntradaBtnCancelar.Click += new System.EventHandler(this.fEntradaBtnCancelar_Click);
+            this.fEntradaBtnCancelar.Click += new System.EventHandler(this.FEntradaBtnCancelar_Click);
             // 
             // fPorcentajeTxtbox
             // 
             this.fPorcentajeTxtbox.Location = new System.Drawing.Point(94, 98);
+            this.fPorcentajeTxtbox.MaxLength = 4;
             this.fPorcentajeTxtbox.Name = "fPorcentajeTxtbox";
             this.fPorcentajeTxtbox.Size = new System.Drawing.Size(150, 20);
             this.fPorcentajeTxtbox.TabIndex = 35;
-            this.fPorcentajeTxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fPorcentajeTxtbox_KeyPress);
-            this.fPorcentajeTxtbox.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.fPorcentajeTxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FPorcentajeTxtbox_KeyPress);
+            this.fPorcentajeTxtbox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox1_Validating);
             // 
             // fEntradalbl
             // 
@@ -86,14 +87,14 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(250, 98);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(250, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 20);
+            this.label1.Size = new System.Drawing.Size(247, 17);
             this.label1.TabIndex = 39;
             this.label1.Text = "Ej. \"10\" para sumar, \"-10\" para restar.";
             // 
-            // fEntradaSimple
+            // FEntradaSimple
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +106,7 @@
             this.Controls.Add(this.fPorcentajeTxtbox);
             this.Controls.Add(this.fEntradaBtnCancelar);
             this.Controls.Add(this.fEntradaBtnAceptar);
-            this.Name = "fEntradaSimple";
+            this.Name = "FEntradaSimple";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

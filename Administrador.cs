@@ -12,7 +12,7 @@ namespace Sistem_de_inventario
         public void EjecutarFormCuerinas() { fCuerina formulario = new fCuerina(); formulario.ShowDialog(); }
         public void EjecutarFormPoliester() { FPoliester formulario = new FPoliester(); formulario.ShowDialog(); }
         public void EjecutarFormArticulos() { fArticulos formulario = new fArticulos(); formulario.ShowDialog(); }
-        public void EjecutarFormEntradaSimple() { fEntradaSimple formulario = new fEntradaSimple(); formulario.ShowDialog(); }
+        public void EjecutarFormEntradaSimple() { FEntradaSimple formulario = new FEntradaSimple(); formulario.ShowDialog(); }
         //Conexión a base de datos
         private IDbConnection CrearConexionTapiceria()
         {

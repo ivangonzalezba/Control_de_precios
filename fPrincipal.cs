@@ -171,7 +171,7 @@ namespace Sistem_de_inventario
                 ListViewItem item = new ListViewItem(Convert.ToString(poliester.ID));
                 this.listViewPoliester.Items.Add(item);
                 item.SubItems.Add(poliester.Nombre);
-                item.SubItems.Add(Convert.ToString(poliester.Precio));
+                item.SubItems.Add(Convert.ToString(Math.Round(poliester.Precio, 2)));
                 item.SubItems.Add(Convert.ToString(poliester.PorcDeGanancia));
                 item.SubItems.Add(Convert.ToString(Math.Round(((poliester.Precio / AnchoPlanchaPoliester + (((poliester.Precio / AnchoPlanchaPoliester) * poliester.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
@@ -185,7 +185,7 @@ namespace Sistem_de_inventario
                 ListViewItem item = this.listViewCuerinas.Items.Add(Convert.ToString(cuerina.ID));
                 item.SubItems.Add(cuerina.Nombre);
                 item.SubItems.Add(Convert.ToString(cuerina.Ancho));
-                item.SubItems.Add(Convert.ToString(cuerina.Precio));
+                item.SubItems.Add(Convert.ToString(Math.Round(cuerina.Precio, 2)));
                 item.SubItems.Add(Convert.ToString(cuerina.PorcDeGanancia));
                 item.SubItems.Add(Convert.ToString(Math.Round(((cuerina.Precio + ((cuerina.Precio * cuerina.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
@@ -477,17 +477,17 @@ namespace Sistem_de_inventario
         }
         /////////////////////////////////
         /////  EVENTOS DE KEYPRESS  /////
-        private void listViewPoliester_KeyPress(object sender, KeyPressEventArgs e)
+        private void ListViewPoliester_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (_Validaciones.EnterEsPresionado(e)) { this.txtAncho.Focus(); }
         }
 
-        private void listViewCuerinas_KeyPress(object sender, KeyPressEventArgs e)
+        private void ListViewCuerinas_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
         }
 
-        private void listViewArticulos_KeyPress(object sender, KeyPressEventArgs e)
+        private void ListViewArticulos_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (_Validaciones.EnterEsPresionado(e)) { this.txtLargo.Focus(); }
         }
@@ -552,15 +552,15 @@ namespace Sistem_de_inventario
         }
         /////////////////////////////////
         /////  EVENTOS COLUMNCLICK  /////
-        private void listViewPoliester_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void ListViewPoliester_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             Ordenar(e, "poliester");
         }
-        private void listViewCuerinas_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void ListViewCuerinas_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             Ordenar(e, "cuerinas");
         }
-        private void listViewArticulos_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void ListViewArticulos_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             Ordenar(e, "articulo");
         }

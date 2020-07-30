@@ -28,11 +28,11 @@ namespace Sistem_de_inventario
         }
         public bool EsDecimal(string aux)
         {
-            return decimal.TryParse(aux, out decimal result);
+            return decimal.TryParse(aux, out _);
         }
         public bool EsEntero(string aux)
         {
-            return int.TryParse(aux, out int retuls);
+            return int.TryParse(aux, out _);
         }
         public bool EsNullOTieneEspaciosEnBlanco(string aux)
         {

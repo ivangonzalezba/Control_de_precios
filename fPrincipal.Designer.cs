@@ -134,8 +134,8 @@
             this.listViewPoliester.TabIndex = 1;
             this.listViewPoliester.UseCompatibleStateImageBehavior = false;
             this.listViewPoliester.View = System.Windows.Forms.View.Details;
-            this.listViewPoliester.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewPoliester_ColumnClick);
-            this.listViewPoliester.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewPoliester_KeyPress);
+            this.listViewPoliester.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewPoliester_ColumnClick);
+            this.listViewPoliester.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListViewPoliester_KeyPress);
             // 
             // colPoliesterID
             // 
@@ -194,9 +194,9 @@
             this.listViewCuerinas.TabIndex = 1;
             this.listViewCuerinas.UseCompatibleStateImageBehavior = false;
             this.listViewCuerinas.View = System.Windows.Forms.View.Details;
-            this.listViewCuerinas.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewCuerinas_ColumnClick);
+            this.listViewCuerinas.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewCuerinas_ColumnClick);
             this.listViewCuerinas.SelectedIndexChanged += new System.EventHandler(this.ListViewCuerinas_SelectedIndexChanged);
-            this.listViewCuerinas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewCuerinas_KeyPress);
+            this.listViewCuerinas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListViewCuerinas_KeyPress);
             // 
             // colID
             // 
@@ -258,8 +258,8 @@
             this.listViewArticulos.TabIndex = 1;
             this.listViewArticulos.UseCompatibleStateImageBehavior = false;
             this.listViewArticulos.View = System.Windows.Forms.View.Details;
-            this.listViewArticulos.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewArticulos_ColumnClick);
-            this.listViewArticulos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewArticulos_KeyPress);
+            this.listViewArticulos.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewArticulos_ColumnClick);
+            this.listViewArticulos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListViewArticulos_KeyPress);
             // 
             // colArticulosID
             // 

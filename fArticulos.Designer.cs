@@ -52,6 +52,7 @@
             // fArtTxtPorcentaje
             // 
             this.fArtTxtPorcentaje.Location = new System.Drawing.Point(156, 132);
+            this.fArtTxtPorcentaje.MaxLength = 3;
             this.fArtTxtPorcentaje.Name = "fArtTxtPorcentaje";
             this.fArtTxtPorcentaje.Size = new System.Drawing.Size(342, 20);
             this.fArtTxtPorcentaje.TabIndex = 55;
