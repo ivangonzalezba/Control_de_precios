@@ -129,7 +129,6 @@ namespace Sistem_de_inventario
                 this.txtDolarOficial.Text = auxListaDolar[1];
                 this.txtDolarImpuesto.Text = auxListaDolar[8];
                 this.txtDolarBlue.Text = auxListaDolar[3];
-                Properties.Settings.Default.Dolar = Convert.ToDecimal(this.txtDolarLocal.Text);
                 Properties.Settings.Default.DolarOficial = Convert.ToDecimal(this.txtDolarOficial.Text);
                 Properties.Settings.Default.DolarImpuesto = Convert.ToDecimal(this.txtDolarImpuesto.Text);
                 Properties.Settings.Default.DolarBlue = Convert.ToDecimal(this.txtDolarBlue.Text);
@@ -455,6 +454,7 @@ namespace Sistem_de_inventario
         private void TxtDolarLocal_Validated(object sender, EventArgs e)
         {
             Dolar = Convert.ToDecimal(this.txtDolarLocal.Text);
+            Properties.Settings.Default.Dolar = Convert.ToDecimal(this.txtDolarLocal.Text);
             switch (PestañaActual)
             {
                 case 1: ListViewPoliesterRefresh(); break;
@@ -558,7 +558,7 @@ namespace Sistem_de_inventario
         }
         private void ListViewCuerinas_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            Ordenar(e, "cuerinas");
+            Ordenar(e, "cuerina");
         }
         private void ListViewArticulos_ColumnClick(object sender, ColumnClickEventArgs e)
         {
