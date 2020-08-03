@@ -157,7 +157,7 @@ namespace Sistem_de_inventario
         }
         void ActualizarTamañoColumnas()
         {
-            this.listViewPoliester.Columns[1].Width = this.Width - 684;
+            this.listViewPoliester.Columns[1].Width = this.Width - 694;
             this.listViewCuerinas.Columns[1].Width = this.Width - 604;
             this.listViewArticulos.Columns[1].Width = this.Width - 554;
         }
@@ -172,7 +172,7 @@ namespace Sistem_de_inventario
                 item.SubItems.Add(poliester.Nombre);
                 item.SubItems.Add(Convert.ToString(Math.Round(poliester.Precio, 2)));
                 item.SubItems.Add(Convert.ToString(poliester.PorcDeGananciaPlancha));
-                item.SubItems.Add(Convert.ToString(Math.Round((poliester.Precio + (poliester.Precio*poliester.PorcDeGananciaPlancha) / 100) * Dolar)));
+                item.SubItems.Add(Convert.ToString(Math.Round((poliester.Precio + (poliester.Precio*poliester.PorcDeGananciaPlancha) / 100) * Dolar, 2)));
                 item.SubItems.Add(Convert.ToString(poliester.PorcDeGanancia));
                 item.SubItems.Add(Convert.ToString(Math.Round(((poliester.Precio / AnchoPlanchaPoliester + (((poliester.Precio / AnchoPlanchaPoliester) * poliester.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
