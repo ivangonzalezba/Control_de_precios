@@ -34,6 +34,7 @@
             this.listViewPoliester = new System.Windows.Forms.ListView();
             this.colPoliesterID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPoliesterNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPoliesterPorcentaje1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPoliesterPrecioDolar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPoliesterPorcentaje = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPoliesterPrecioM2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -82,6 +83,7 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblSimboloPesos2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.colPoliesterPrecioPesos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cPestañas.SuspendLayout();
             this.pPoliester.SuspendLayout();
             this.pCuerinas.SuspendLayout();
@@ -123,6 +125,8 @@
             this.colPoliesterID,
             this.colPoliesterNombre,
             this.colPoliesterPrecioDolar,
+            this.colPoliesterPorcentaje1,
+            this.colPoliesterPrecioPesos,
             this.colPoliesterPorcentaje,
             this.colPoliesterPrecioM2});
             this.listViewPoliester.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -145,7 +149,12 @@
             // colPoliesterNombre
             // 
             this.colPoliesterNombre.Text = "Descripción";
-            this.colPoliesterNombre.Width = 460;
+            this.colPoliesterNombre.Width = 340;
+            // 
+            // colPoliesterPorcentaje1
+            // 
+            this.colPoliesterPorcentaje1.Text = "%";
+            this.colPoliesterPorcentaje1.Width = 30;
             // 
             // colPoliesterPrecioDolar
             // 
@@ -690,6 +699,11 @@
             this.lblTotal.TabIndex = 37;
             this.lblTotal.Text = "TOTAL";
             // 
+            // colPoliesterPrecioPesos
+            // 
+            this.colPoliesterPrecioPesos.Text = "Plancha $";
+            this.colPoliesterPrecioPesos.Width = 90;
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -800,6 +814,8 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label lblSimboloPesos2;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.ColumnHeader colPoliesterPorcentaje1;
+        private System.Windows.Forms.ColumnHeader colPoliesterPrecioPesos;
     }
 }
 

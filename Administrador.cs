@@ -82,6 +82,7 @@ namespace Sistem_de_inventario
                                 ID = Convert.ToInt32(dataReader["poliesterID"]),
                                 Nombre = Convert.ToString(dataReader["Nombre"]),
                                 Precio = Convert.ToDecimal(dataReader["Precio"]),
+                                PorcDeGananciaPlancha = Convert.ToInt32(dataReader["PorcentajePlancha"]),
                                 PorcDeGanancia = Convert.ToInt32(dataReader["Porcentaje"])
                             });
                         }
@@ -122,10 +123,11 @@ namespace Sistem_de_inventario
             {
                 using (IDbCommand command = conexionIDB.CreateCommand())
                 {
-                    command.CommandText = "INSERT INTO Poliester (Nombre, Precio, Porcentaje) VALUES (@Nombre, @Precio, @PorcDeGanancia)";
+                    command.CommandText = "INSERT INTO Poliester (Nombre, Precio, PorcentajePlancha, Porcentaje) VALUES (@Nombre, @Precio, @PorcPlancha, @PorcDeGanancia)";
 
                     CrearParametro(command, "Nombre", poliester.Nombre);
                     CrearParametro(command, "Precio", poliester.Precio);
+                    CrearParametro(command, "PorcPlancha", poliester.PorcDeGananciaPlancha);
                     CrearParametro(command, "PorcDeGanancia", poliester.PorcDeGanancia);
 
                     command.ExecuteNonQuery();
@@ -172,11 +174,12 @@ namespace Sistem_de_inventario
                 using (IDbCommand command = conexionIDB.CreateCommand())
                 {
                     command.CommandText =
-                        "UPDATE Poliester SET Nombre=@Nombre, Precio=@Precio, Porcentaje=@PorcDeGanancia WHERE poliesterID=@ID";
+                        "UPDATE Poliester SET Nombre=@Nombre, Precio=@Precio, PorcentajePlancha=@PorcPlancha, Porcentaje=@PorcDeGanancia WHERE poliesterID=@ID";
 
                     CrearParametro(command, "ID", poliester.ID);
                     CrearParametro(command, "Nombre", poliester.Nombre);
                     CrearParametro(command, "Precio", poliester.Precio);
+                    CrearParametro(command, "PorcPlancha", poliester.PorcDeGananciaPlancha);
                     CrearParametro(command, "PorcDeGanancia", poliester.PorcDeGanancia);
 
                     command.ExecuteNonQuery();

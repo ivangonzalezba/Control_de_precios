@@ -38,6 +38,8 @@
             this.fPolLbl1 = new System.Windows.Forms.Label();
             this.fPolBtnCancelar = new System.Windows.Forms.Button();
             this.fPolBtnAceptar = new System.Windows.Forms.Button();
+            this.fPolTxtPorcentajePlancha = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fPolLblTitulo
@@ -52,11 +54,11 @@
             // 
             // fPolTxtPorcentaje
             // 
-            this.fPolTxtPorcentaje.Location = new System.Drawing.Point(156, 132);
+            this.fPolTxtPorcentaje.Location = new System.Drawing.Point(156, 172);
             this.fPolTxtPorcentaje.MaxLength = 3;
             this.fPolTxtPorcentaje.Name = "fPolTxtPorcentaje";
             this.fPolTxtPorcentaje.Size = new System.Drawing.Size(342, 20);
-            this.fPolTxtPorcentaje.TabIndex = 45;
+            this.fPolTxtPorcentaje.TabIndex = 46;
             this.fPolTxtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FPolTxtPorcentaje_KeyPress);
             this.fPolTxtPorcentaje.Validating += new System.ComponentModel.CancelEventHandler(this.FPolTxtPorcentaje_Validating);
             // 
@@ -92,11 +94,11 @@
             // 
             this.fPolLbl4.AutoSize = true;
             this.fPolLbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fPolLbl4.Location = new System.Drawing.Point(109, 132);
+            this.fPolLbl4.Location = new System.Drawing.Point(48, 132);
             this.fPolLbl4.Name = "fPolLbl4";
-            this.fPolLbl4.Size = new System.Drawing.Size(23, 20);
+            this.fPolLbl4.Size = new System.Drawing.Size(84, 20);
             this.fPolLbl4.TabIndex = 39;
-            this.fPolLbl4.Text = "%";
+            this.fPolLbl4.Text = "Plancha %";
             // 
             // fPolLbl3
             // 
@@ -125,10 +127,10 @@
             this.fPolBtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.fPolBtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fPolBtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.fPolBtnCancelar.Location = new System.Drawing.Point(340, 188);
+            this.fPolBtnCancelar.Location = new System.Drawing.Point(340, 228);
             this.fPolBtnCancelar.Name = "fPolBtnCancelar";
             this.fPolBtnCancelar.Size = new System.Drawing.Size(101, 29);
-            this.fPolBtnCancelar.TabIndex = 47;
+            this.fPolBtnCancelar.TabIndex = 48;
             this.fPolBtnCancelar.Text = "Cancelar";
             this.fPolBtnCancelar.UseVisualStyleBackColor = false;
             this.fPolBtnCancelar.Click += new System.EventHandler(this.FPolBtnCancelar_Click);
@@ -139,21 +141,43 @@
             this.fPolBtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.fPolBtnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fPolBtnAceptar.ForeColor = System.Drawing.Color.White;
-            this.fPolBtnAceptar.Location = new System.Drawing.Point(172, 188);
+            this.fPolBtnAceptar.Location = new System.Drawing.Point(172, 228);
             this.fPolBtnAceptar.Name = "fPolBtnAceptar";
             this.fPolBtnAceptar.Size = new System.Drawing.Size(101, 29);
-            this.fPolBtnAceptar.TabIndex = 46;
+            this.fPolBtnAceptar.TabIndex = 47;
             this.fPolBtnAceptar.Text = "Aceptar";
             this.fPolBtnAceptar.UseVisualStyleBackColor = false;
             this.fPolBtnAceptar.Click += new System.EventHandler(this.FPolBtnAceptar_Click);
+            // 
+            // fPolTxtPorcentajePlancha
+            // 
+            this.fPolTxtPorcentajePlancha.Location = new System.Drawing.Point(156, 132);
+            this.fPolTxtPorcentajePlancha.MaxLength = 3;
+            this.fPolTxtPorcentajePlancha.Name = "fPolTxtPorcentajePlancha";
+            this.fPolTxtPorcentajePlancha.Size = new System.Drawing.Size(342, 20);
+            this.fPolTxtPorcentajePlancha.TabIndex = 45;
+            this.fPolTxtPorcentajePlancha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fPolTxtPorcentajePlancha_KeyPress);
+            this.fPolTxtPorcentajePlancha.Validating += new System.ComponentModel.CancelEventHandler(this.fPolTxtPorcentajePlancha_Validating);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(50, 172);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "MLineal %";
             // 
             // FPoliester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.fPolBtnCancelar;
-            this.ClientSize = new System.Drawing.Size(612, 246);
+            this.ClientSize = new System.Drawing.Size(612, 286);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.fPolTxtPorcentajePlancha);
             this.Controls.Add(this.fPolLblTitulo);
             this.Controls.Add(this.fPolTxtPorcentaje);
             this.Controls.Add(this.fPolTxtPrecio);
@@ -167,7 +191,6 @@
             this.Name = "FPoliester";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo";
-            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +208,7 @@
         private System.Windows.Forms.Label fPolLbl1;
         private System.Windows.Forms.Button fPolBtnCancelar;
         private System.Windows.Forms.Button fPolBtnAceptar;
+        private System.Windows.Forms.TextBox fPolTxtPorcentajePlancha;
+        private System.Windows.Forms.Label label1;
     }
 }

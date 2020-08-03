@@ -22,7 +22,8 @@ namespace Sistem_de_inventario
                 this.Text = "Editar";
                 this.fPolTxtNombre.Text = (FPrincipal.ItemSeleccionado.SubItems[1].Text).Trim();
                 this.fPolTxtPrecio.Text = FPrincipal.ItemSeleccionado.SubItems[2].Text;
-                this.fPolTxtPorcentaje.Text = FPrincipal.ItemSeleccionado.SubItems[3].Text;
+                this.fPolTxtPorcentajePlancha.Text = FPrincipal.ItemSeleccionado.SubItems[3].Text;
+                this.fPolTxtPorcentaje.Text = FPrincipal.ItemSeleccionado.SubItems[5].Text;
             }
         }
         private void FPolBtnCancelar_Click(object sender, EventArgs e) { this.Close(); }
@@ -35,6 +36,7 @@ namespace Sistem_de_inventario
                 {
                     Nombre = this.fPolTxtNombre.Text,
                     Precio = Convert.ToDecimal(this.fPolTxtPrecio.Text),
+                    PorcDeGananciaPlancha = Convert.ToInt32(this.fPolTxtPorcentajePlancha.Text),
                     PorcDeGanancia = Convert.ToInt32(this.fPolTxtPorcentaje.Text),
                 };
                 _Administrador.GuardarNuevoPoliester(poliester);
@@ -47,6 +49,7 @@ namespace Sistem_de_inventario
                     ID = Convert.ToInt32(FPrincipal.ItemSeleccionado.Text),
                     Nombre = this.fPolTxtNombre.Text,
                     Precio = Convert.ToDecimal(this.fPolTxtPrecio.Text),
+                    PorcDeGananciaPlancha = Convert.ToInt32(this.fPolTxtPorcentajePlancha.Text),
                     PorcDeGanancia = Convert.ToInt32(this.fPolTxtPorcentaje.Text),
                 };
                 _Administrador.ActualizarPoliester(poliester);
@@ -60,6 +63,11 @@ namespace Sistem_de_inventario
         private void FPolTxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             _Validaciones.SoloNumerosYComa(e);
+            if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
+        }
+        private void fPolTxtPorcentajePlancha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _Validaciones.SoloNumeros(e);
             if (_Validaciones.EnterEsPresionado(e)) { this.GetNextControl(ActiveControl, true).Focus(); e.Handled = true; }
         }
         private void FPolTxtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
@@ -80,6 +88,13 @@ namespace Sistem_de_inventario
             {
                 if (!_Validaciones.EsDecimal(this.fPolTxtPrecio.Text)) { e.Cancel = true; }
                 else { this.fPolLblPrecio.Text = "$" + ((Convert.ToDecimal(this.fPolTxtPrecio.Text)) * FPrincipal.Dolar).ToString(); }
+            }
+        }
+        private void fPolTxtPorcentajePlancha_Validating(object sender, CancelEventArgs e)
+        {
+            if (!fPolBtnCancelar.Focused)
+            {
+                if (!_Validaciones.EsEntero(this.fPolTxtPorcentajePlancha.Text)) { e.Cancel = true; }
             }
         }
         private void FPolTxtPorcentaje_Validating(object sender, CancelEventArgs e)

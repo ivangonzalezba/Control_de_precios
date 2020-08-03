@@ -157,7 +157,7 @@ namespace Sistem_de_inventario
         }
         void ActualizarTamañoColumnas()
         {
-            this.listViewPoliester.Columns[1].Width = this.Width - 564;
+            this.listViewPoliester.Columns[1].Width = this.Width - 684;
             this.listViewCuerinas.Columns[1].Width = this.Width - 604;
             this.listViewArticulos.Columns[1].Width = this.Width - 554;
         }
@@ -171,6 +171,8 @@ namespace Sistem_de_inventario
                 this.listViewPoliester.Items.Add(item);
                 item.SubItems.Add(poliester.Nombre);
                 item.SubItems.Add(Convert.ToString(Math.Round(poliester.Precio, 2)));
+                item.SubItems.Add(Convert.ToString(poliester.PorcDeGananciaPlancha));
+                item.SubItems.Add(Convert.ToString(Math.Round((poliester.Precio + (poliester.Precio*poliester.PorcDeGananciaPlancha) / 100) * Dolar)));
                 item.SubItems.Add(Convert.ToString(poliester.PorcDeGanancia));
                 item.SubItems.Add(Convert.ToString(Math.Round(((poliester.Precio / AnchoPlanchaPoliester + (((poliester.Precio / AnchoPlanchaPoliester) * poliester.PorcDeGanancia) / 100)) * Dolar), 2)));
             });
@@ -360,7 +362,7 @@ namespace Sistem_de_inventario
                     {
                         ListViewItem item = listViewPoliester.FocusedItem;
                         if (item != null && _Validaciones.EsDecimal(this.txtAncho.Text) && _Validaciones.EsDecimal(this.txtLargo.Text))
-                        { this.txtSubTotal.Text = Convert.ToString(Math.Round(Convert.ToDecimal(item.SubItems[4].Text) * Convert.ToDecimal(this.txtAncho.Text) * Convert.ToDecimal(this.txtLargo.Text), 2)); };
+                        { this.txtSubTotal.Text = Convert.ToString(Math.Round(Convert.ToDecimal(item.SubItems[6].Text) * Convert.ToDecimal(this.txtAncho.Text) * Convert.ToDecimal(this.txtLargo.Text), 2)); };
                         break;
                     }
                 case 2:
