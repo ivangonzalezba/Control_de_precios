@@ -268,7 +268,7 @@
             this.listViewArticulos.HideSelection = false;
             this.listViewArticulos.Location = new System.Drawing.Point(3, 3);
             this.listViewArticulos.Name = "listViewArticulos";
-            this.listViewArticulos.Size = new System.Drawing.Size(791, 419);
+            this.listViewArticulos.Size = new System.Drawing.Size(791, 389);
             this.listViewArticulos.TabIndex = 1;
             this.listViewArticulos.UseCompatibleStateImageBehavior = false;
             this.listViewArticulos.View = System.Windows.Forms.View.Details;
